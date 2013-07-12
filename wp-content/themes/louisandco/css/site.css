@@ -1,0 +1,62 @@
+/*
+Theme Name: 	FBA
+Theme URI: 		http://www.falsebehavinganimals.com
+Description: 	Custom  theme designed and built by False Behaving Animals
+Version: 			1.0
+Author: 			False Behaving Animals
+Author URI: 	http://falsebehavinganimals.com
+*/
+
+/* ---------------------------------------------------------------------------------------------------------- 
+Placeholder (to be deleted later)           ----------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------- */
+
+
+/* ---------------------------------------------------------------------------------------------------------- 
+Start here           ----------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------- */
+/* Overall */
+body{background-color: black;color: white;}
+h1,h2,h3,h4,h5,h6{font-family: 'HelveticaNeue-CondensedBold', sans-serif;}
+.df{font-family: 'HelveticaNeue-CondensedBold', sans-serif;}
+a{color: #969696;}
+a:hover {color: #ffffff;text-decoration: none;}
+.uppercase{text-transform: uppercase;}
+
+/* Main Menu */
+#menu-main{list-style: none;}
+#menu-main li{padding: 0px;}
+#menu-main li a{font-size: 37px; line-height: 0.7em;transition: all .3s;-moz-transition: all .3s; /* Firefox 4 */-webkit-transition: all .3s; /* Safari and Chrome */-o-transition: all .3s; /* Opera */}
+.current-menu-item a{color: #ffffff;}
+/* SubMenu */
+#menu-main li .sub-menu li a{font-size: 22px;}
+.sub-menu li{list-style: none;}
+.sub-menu{margin: 0px;display: none;}
+/* .menu-item:hover .sub-menu{display: block;} */
+
+/* ---------------------------------------------------------------------------------------------------------- 
+Interactive           
+---------------------------------------------------------------------------------------------------------- */
+.transition {
+transition: all .3s;
+-moz-transition: all .3s; /* Firefox 4 */
+-webkit-transition: all .3s; /* Safari and Chrome */
+-o-transition: all .3s; /* Opera */
+}
+
+/* ---------------------------------------------------------------------------------------------------------- 
+Responsive           
+---------------------------------------------------------------------------------------------------------- */
+
+
+/* Large desktop */
+@media (min-width: 1200px) { ... }
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { ... }
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { ... }
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) { ... }
