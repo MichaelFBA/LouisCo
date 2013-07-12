@@ -24,9 +24,9 @@
 		while ( $queryHome->have_posts() ) : $queryHome->the_post();
 		?>
 		<div class="span4">
-			<h2 class="uppercase pan"><?php the_title(); ?></h2>
+			<h2 class="uppercase pan mbn"><?php the_title(); ?></h2>
 			<?php the_content(); ?>
-			<h2 class="uppercase pan">Get in touch</h2>
+			<h2 class="uppercase pan mbn mtm">Get in touch</h2>
 			
 			<form class="contactForm">
 			  <fieldset>
@@ -38,7 +38,7 @@
 			    <input type="email" placeholder="Email" class="span4">
 			    <label>Message</label>
 			    <textarea rows="3" placeholder="Message" class="span4"></textarea>
-			    <button type="submit" class="btn">Submit</button>
+			    <button type="submit" class="btn ">Submit</button>
 			  </fieldset>
 			</form>
 			

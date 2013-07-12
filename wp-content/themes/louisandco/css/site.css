@@ -24,6 +24,32 @@ a:hover {color: #ffffff;text-decoration: none;}
 .uppercase{text-transform: uppercase;}
 .color1{color: #ffffff;}
 
+
+/* Home Page */
+img.bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+	
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+	
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  img.bg {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+}
+
+
+
 /* Main Menu */
 #menu-main{background-image: url(../img/louisandco.png); background-repeat: no-repeat;padding: 50px;background-position: -12px 3px;}
 #menu-main{list-style: none;}
@@ -43,6 +69,9 @@ header{display: block;position: fixed;top: 0px;z-index: 999;background-color: bl
 /* Contact Form */
 .contactForm input, .contactForm textarea{background-color: #222222;border-radius: 0px; border-color: #333333}
 .contactForm input{height: 30px}
+
+/* Footer */
+.socialIcons li a{background-color: #ffffff;border-radius: 25px;padding: 3px !important;color: #000000;width:25px; text-align: center;margin-top: 5px; margin-right:5px }
 
 /* ---------------------------------------------------------------------------------------------------------- 
 Interactive           
