@@ -20,7 +20,7 @@
 				    'menu'       => 'Main',
 				    'depth'      => 2,
 				    'container'  => false,
-				    'menu_class' => 'uppercase fsl df pan man mth transition'
+				    'menu_class' => 'uppercase fsl df man mth transition'
 				));
 			?>
 		</div>

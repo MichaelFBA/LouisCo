@@ -74,6 +74,12 @@ function starkers_script_enqueuer()
   wp_enqueue_script('site');
   wp_register_script('bootstrapJS', get_template_directory_uri() . '/js/bootstrap.js', '', '', true);
   wp_enqueue_script('bootstrapJS');
+  wp_register_script('imagesLoaded', get_template_directory_uri() . '/js/imagesloaded.pkgd.min.js', '', '', true);
+  wp_enqueue_script('imagesLoaded');
+  wp_register_script('packery', get_template_directory_uri() . '/js/packery.pkgd.js', '', '', true);
+  wp_enqueue_script('packery');
+  
+  
   
   /* Style Sheets */
   wp_register_style('reset', get_template_directory_uri() . '/css/reset.css', '', '', 'screen');

@@ -3,21 +3,77 @@ jQuery(document).ready(function ($) {
 
 /* ========================================================================================================================
 
-	Menu
+	Packery
 
 ======================================================================================================================== */
+
 /*
-$('.menu-item-object-category').hover(
-  function () {
-  	$(this).stop(true,true).animate({padding:'20px 0 20px 0'}, 300,'swing')
-    $(this).find('.sub-menu').slideToggle();
-  },
-  function () {
-  	$(this).stop(true,true).animate({padding:'0px'}, 300,'swing')
-    $(this).find('.sub-menu').slideToggle();
-  }
-);
+  var container = document.querySelector('.packery');
+  var pckry = new Packery( container );
+  
+  eventie.bind( container, 'click', function( event ) {
+    // don't proceed if item content was not clicked on
+    var target = event.target;
+    if ( !classie.has( target, 'item-content' )  ) {
+      return;
+    }
+    var itemElem = target.parentNode;
+    var isExpanded = classie.has( itemElem, 'is-expanded' );
+    classie.toggleClass( itemElem, 'is-expanded' );
+  
+    if ( isExpanded ) {
+      // if shrinking, just layout
+      pckry.layout();
+    } else {
+      // if expanding, fit it
+      pckry.fit( itemElem );
+    }
+  });
 */
+  
+  
+
+
+
+ var container = document.querySelector('.packery');
+  var pckry;
+  
+  imagesLoaded( container, function() {
+    pckry = new Packery( container, {
+      itemSelector: '.itemPack',
+      gutter: 10
+    });
+  });
+  
+
+
+  
+  eventie.bind( container, 'click', function( event ) {
+    // don't proceed if item content was not clicked on
+    
+    var target = event.target;
+    console.log(target)
+    if ( !classie.has( target.parentNode, 'itemPack' )  ) {
+    	return;
+    }
+    
+    var itemElem = target.parentNode;
+    console.log(itemElem)
+    var isExpanded = classie.has( itemElem, 'is-expanded' );
+    classie.toggleClass( itemElem, 'is-expanded' );
+  
+    if ( isExpanded ) {
+      // if shrinking, just layout
+      pckry.layout();
+    } else {
+      // if expanding, fit it
+      pckry.fit( itemElem );
+    }
+  });
+
+
+
+
 
 
 

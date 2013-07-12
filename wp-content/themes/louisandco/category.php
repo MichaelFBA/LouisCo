@@ -11,19 +11,93 @@
 ?>
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
 
-<?php if ( have_posts() ): ?>
-<h2>Category Archive: <?php echo single_cat_title( '', false ); ?></h2>
-<ol>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+
+<!--
+			<div class="packery">
+			  <div class="item">
+			    <div class="item-content"></div>
+			  </div>
+			  <div class="item">
+			    <div class="item-content"></div>
+			  </div>
+			  <div class="item">
+			    <div class="item-content"></div>
+			  </div>
+			  <div class="item">
+			    <div class="item-content"></div>
+			  </div>
+			  <div class="item">
+			    <div class="item-content"></div>
+			  </div>
+			  <div class="item">
+			    <div class="item-content"></div>
+			  </div>
+			  <div class="item">
+			    <div class="item-content"></div>
+			  </div>
+			  <div class="item">
+			    <div class="item-content"></div>
+			  </div>
+			  <div class="item">
+			    <div class="item-content"></div>
+			  </div>
+			  <div class="item">
+			    <div class="item-content"></div>
+			  </div>
+			  <div class="item">
+			    <div class="item-content"></div>
+			  </div>
+			  <div class="item">
+			    <div class="item-content"></div>
+			  </div>
+			  <div class="item">
+			    <div class="item-content"></div>
+			  </div>
+			  <div class="item">
+			    <div class="item-content"></div>
+			  </div>
+			  <div class="item">
+			    <div class="item-content"></div>
+			  </div>
+			</div>
+-->
+			
+
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+			<div class="packery">
+				
+				<?php if ( have_posts() ): ?>
+
 <?php while ( have_posts() ) : the_post(); ?>
-	<li>
-		<article>
-			<h2><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-			<time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> <?php the_time(); ?></time> <?php comments_popup_link('Leave a Comment', '1 Comment', '% Comments'); ?>
-			<?php the_content(); ?>
-		</article>
-	</li>
+
+<?php
+$attachments = get_posts(array(
+      'post_type' => 'attachment',
+      'posts_per_page' => -1,
+      'post_parent' => get_the_id()
+    ));
+    //if ($attachments) {
+    foreach ($attachments as $attachment) {
+    	$imageUrl =  wp_get_attachment_image_src($attachment->ID, 'large'); ?>
+    	<div class="itemPack">
+    		<img src="<?php echo $imageUrl[0] ?>" />
+    	</div>
+      <?php
+    }
+?>
+
 <?php endwhile; ?>
-</ol>
+			</div>
+
+
 <?php else: ?>
 <h2>No posts to display in <?php echo single_cat_title( '', false ); ?></h2>
 <?php endif; ?>
