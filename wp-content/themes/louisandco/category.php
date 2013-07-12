@@ -11,91 +11,30 @@
 ?>
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
 
-<div class="container-fluid">
-	<div class="row-fluid">
-		<div class="span12">
+<div class="packery">
+	
+	<?php if ( have_posts() ): ?>
 
-<!--
-			<div class="packery">
-			  <div class="item">
-			    <div class="item-content"></div>
-			  </div>
-			  <div class="item">
-			    <div class="item-content"></div>
-			  </div>
-			  <div class="item">
-			    <div class="item-content"></div>
-			  </div>
-			  <div class="item">
-			    <div class="item-content"></div>
-			  </div>
-			  <div class="item">
-			    <div class="item-content"></div>
-			  </div>
-			  <div class="item">
-			    <div class="item-content"></div>
-			  </div>
-			  <div class="item">
-			    <div class="item-content"></div>
-			  </div>
-			  <div class="item">
-			    <div class="item-content"></div>
-			  </div>
-			  <div class="item">
-			    <div class="item-content"></div>
-			  </div>
-			  <div class="item">
-			    <div class="item-content"></div>
-			  </div>
-			  <div class="item">
-			    <div class="item-content"></div>
-			  </div>
-			  <div class="item">
-			    <div class="item-content"></div>
-			  </div>
-			  <div class="item">
-			    <div class="item-content"></div>
-			  </div>
-			  <div class="item">
-			    <div class="item-content"></div>
-			  </div>
-			  <div class="item">
-			    <div class="item-content"></div>
-			  </div>
-			</div>
--->
-			
-
-			</div>
-			
-		</div>
-	</div>
-</div>
-
-			<div class="packery">
-				
-				<?php if ( have_posts() ): ?>
-
-<?php while ( have_posts() ) : the_post(); ?>
-
-<?php
-$attachments = get_posts(array(
-      'post_type' => 'attachment',
-      'posts_per_page' => -1,
-      'post_parent' => get_the_id()
-    ));
-    //if ($attachments) {
-    foreach ($attachments as $attachment) {
-    	$imageUrl =  wp_get_attachment_image_src($attachment->ID, 'large'); ?>
-    	<div class="itemPack">
-    		<img src="<?php echo $imageUrl[0] ?>" />
-    	</div>
-      <?php
-    }
-?>
+	<?php while ( have_posts() ) : the_post(); ?>
+	
+	<?php
+	$attachments = get_posts(array(
+	      'post_type' => 'attachment',
+	      'posts_per_page' => -1,
+	      'post_parent' => get_the_id()
+	    ));
+	    //if ($attachments) {
+	    foreach ($attachments as $attachment) {
+	    	$imageUrl =  wp_get_attachment_image_src($attachment->ID, 'large'); ?>
+	    	<div class="itemPack">
+	    		<img src="<?php echo $imageUrl[0] ?>" />
+	    	</div>
+	      <?php
+	    }
+	?>
 
 <?php endwhile; ?>
-			</div>
+</div>
 
 
 <?php else: ?>
