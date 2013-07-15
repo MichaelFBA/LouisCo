@@ -55,8 +55,17 @@ img.bg {
 #menu-main li a{font-size: 34px; line-height: 0.7em;}
 #menu-main li{transition: all .3s ease-in-out;-moz-transition: all .3s ease-in-out; /* Firefox 4 */-webkit-transition: all .3s ease-in-out; /* Safari and Chrome */-o-transition: all .3s ease-in-out; /* Opera */}
 #menu-main li:hover .sub-menu{opacity: 1;height: 50px;}
-#menu-main > li:hover{padding: 20px 0 20px 0;}
-.current-menu-item a{color: #ffffff;}
+#menu-main > li:hover{padding: 10px 0 10px 0;}
+.current-menu-item > a{color: #ffffff;}
+
+.page-template-page-images-php #menu-main > li:first-child{position: relative;top:-55px;} /* move co to top */
+.page-template-page-images-php #menu-main > li:first-child:hover{padding: 0px;} /* co in menu */
+
+.page-template-page-images-php .current-menu-item{position: relative;top:-28px;}
+.page-template-page-images-php #menu-main > li.current-menu-item:hover{padding: 0px;}
+
+.page-template-page-images-php .current-menu-item .sub-menu{float: right;opacity: 1;height: auto;overflow: visible;position: relative;top:10px; }
+.page-template-page-images-php .current-menu-item .sub-menu li{display: inline;margin-left:20px;}
 
 /* SubMenu */
 #menu-main li .sub-menu li a{font-size: 18px;}
@@ -67,16 +76,17 @@ img.bg {
 .navbar-inverse .navbar-inner {background-image: none; background-color: #000000;}
 
 
-/* Category Nav */
-header{display: block;position: fixed;top: 0px;z-index: 999;background-color: black; background-color: rgba(0,0,0,0.8);width: 100%;height: 130px;overflow: hidden;}
+/* Page Nav */
+header{display: block;position: fixed;top: 0px;z-index: 999;width: 100%;height: 113px;overflow: hidden;background-color: #000000; background-color: rgba(0,0,0,0.7) }
+header:hover{height: 400px;}
 
 /* Contact Form */
 .contactForm input, .contactForm textarea{background-color: #222222;border-radius: 0px; border-color: #333333}
 .contactForm input{height: 30px}
 
 /* Footer */
-.socialIcons li a{background-color: #ffffff;border-radius: 25px;padding: 3px !important;color: #000000;width:25px; text-align: center;margin-top: 5px; margin-right:5px }
-
+.socialIcons li a{background-color: #969696;border-radius: 25px;padding: 3px !important;color: #000000;width:25px; text-align: center;margin-top: 5px; margin-right:10px }
+.socialIcons i{color: #FFFFFF}
 /* ---------------------------------------------------------------------------------------------------------- 
 Interactive           
 ---------------------------------------------------------------------------------------------------------- */
@@ -130,7 +140,7 @@ Packery
 
 .itemPack { float: left; }
 
-.itemPack img { display: block; height:350px }
+.itemPack img { display: block; height:250px }
 
 .is-hidden { display: none; }
 

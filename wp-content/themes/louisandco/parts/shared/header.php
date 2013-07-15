@@ -1,6 +1,6 @@
-<header>
+<header class="transition">
 
-<div class="container">
+<div class="container-fluid">
 	<div class="row">
 		<div class="span12">
 			<?php 

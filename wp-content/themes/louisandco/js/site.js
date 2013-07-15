@@ -16,6 +16,16 @@ $('#menu-main > li').mouseover(function() {
 
 
 
+/* Menu - move dom element for main menu  */
+
+if( $('.current-menu-item').index() >= 2 ){
+	$("#menu-main li:eq(0)").after($('.current-menu-item'));
+}
+
+/* Zoom Images like old site hover */
+$('.packery')
+
+
 /* ========================================================================================================================
 
 	Packery

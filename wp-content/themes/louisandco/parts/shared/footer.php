@@ -8,7 +8,7 @@
 				    'menu'       => 'Footer',
 				    'depth'      => 2,
 				    'container'  => false,
-				    'menu_class' => 'uppercase nav '
+				    'menu_class' => 'uppercase nav df'
 				));
 			?>
 			<ul class="nav pull-right socialIcons">
