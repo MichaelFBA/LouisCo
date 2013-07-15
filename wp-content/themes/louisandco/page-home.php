@@ -20,51 +20,34 @@
 				    'menu'       => 'Main',
 				    'depth'      => 2,
 				    'container'  => false,
-				    'menu_class' => 'uppercase fsl df man mth transition front'
+				    'menu_class' => 'uppercase fsl df man mth transition front',
+				    //'walker' 		 => new wp_bootstrap_navwalker()
 				));
 			?>
 		</div>
 	</div>
 </div>
 
-
+<div class="background-images back">
  <?php 
- $args = array('parent' => 11);
- $categories = get_categories( $args ); 
-/*  print_r($categories); */
+ $queryHome = new WP_Query(array(
+  	'post_type'			 => 'page', 
+  	'post_status'		 => 'publish',
+  	'meta_query' => array( 
+        array(
+            'key'   => '_wp_page_template', 
+            'value' => 'page-images.php'
+						)
+				)
+     ) 
+  );
+	while ( $queryHome->have_posts() ) : $queryHome->the_post();
+	$attr = array('class'	=> "bg opacity0 transition back page-". get_the_id());
+	the_post_thumbnail( 'large', $attr );
+	endwhile;
+	?> 
  
- foreach($categories as $a){
- 	//echo $a->cat_ID;
- 		$queryLatest = new WP_Query(array(
-    	'post_per_page'	=> 1,
-    	'order'					=> 'DESC',
-    	'post_status'		=> 'publish',
-    	'cat'				 		=> $a->cat_ID
-       ) 
-    );
-		while ( $queryLatest->have_posts() ) : $queryLatest->the_post();
- 	
-		$attachments = get_posts(array(
-		  'post_type' => 'attachment',
-		  'posts_per_page' => 1,
-		  'post_parent' => get_the_id()
-		));
-		//if ($attachments) {
-		foreach ($attachments as $attachment) {
-			$imageUrl =  wp_get_attachment_image_src($attachment->ID, 'large'); ?>
-				<img class="bg back" src="<?php echo $imageUrl[0] ?>" />
-		  <?php
-		}
-		endwhile;
-		wp_reset_query();
-	}
- 
- ?> 
- 
-
-
-
-
+</div>
 
 
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer' ) ); ?>
