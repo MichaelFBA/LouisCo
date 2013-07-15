@@ -1,5 +1,5 @@
 /**
- * GarthCSS
+ * ObjectOrientedCSS
  *
 */
 
@@ -7,7 +7,7 @@
  /**
  * Opacity
  *
- * @category   GarthCSS
+ * @category   ObjectOrientedCSS
  * @package    Helper
  * @subpackage Border.Color
  */
@@ -20,7 +20,7 @@
  /**
  * Opacity
  *
- * @category   GarthCSS
+ * @category   ObjectOrientedCSS
  * @package    Helper
  * @subpackage Border.Color
  */
@@ -41,7 +41,7 @@
 /**
  * Media
  *
- * @category GarthCSS
+ * @category ObjectOrientedCSS
  * @package  Media
  */
 .media {
@@ -68,7 +68,7 @@
  * a/t/r/b/l = all/top/right/bottom/left
  * t/s/m/l/h = tiny/small/medium/large/huge
  *
- * @category   GarthCSS
+ * @category   ObjectOrientedCSS
  * @package    Helper
  * @subpackage Border
  */
@@ -96,7 +96,7 @@
 /**
  * Border Color
  *
- * @category   GarthCSS
+ * @category   ObjectOrientedCSS
  * @package    Helper
  * @subpackage Border.Color
  */
@@ -114,7 +114,7 @@
  * a/tl/tr/bl/br = all/top-left/top-right/bottom-left/bottom-right
  * n/s/m/l = none/small/medium/large/huge
  *
- * @category   GarthCSS
+ * @category   ObjectOrientedCSS
  * @package    Helper
  * @subpackage Border.Radius
  */
@@ -211,7 +211,7 @@
  * a/t/r/b/l = all/top/right/bottom/left
  * s/m/l = small/medium/large
  *
- * @category   GarthCSS
+ * @category   ObjectOrientedCSS
  * @package    Helper
  * @subpackage Box.Shadow
  */
@@ -296,7 +296,7 @@
 /**
  * Display
  *
- * @category   GarthCSS
+ * @category   ObjectOrientedCSS
  * @package    Helper
  * @subpackage Display
  */
@@ -309,7 +309,7 @@
  * Typography
  *
  *
- * @category   GarthCSS
+ * @category   ObjectOrientedCSS
  * @package    Helper
  * @subpackage Type
  */
@@ -318,7 +318,7 @@
  /**
  * Heading
  *
- * @category   GarthCSS
+ * @category   ObjectOrientedCSS
  * @package    Helper
  * @subpackage Heading
  */
@@ -332,7 +332,7 @@ h6, .h6 { color: #333333; font-size: 11.9px/1.5em; }
 /**
  * Font Family
  *
- * @category   GarthCSS
+ * @category   ObjectOrientedCSS
  * @package    Helper
  * @subpackage Font.Family
  */
@@ -346,7 +346,7 @@ h6, .h6 { color: #333333; font-size: 11.9px/1.5em; }
  * fs = font-size
  * t/s/m/l/h = tiny/small/medium/large/huge
  *
- * @category   GarthCSS
+ * @category   ObjectOrientedCSS
  * @package    Helper
  * @subpackage Font.Size
  */
@@ -377,7 +377,7 @@ h6, .h6 { color: #333333; font-size: 11.9px/1.5em; }
  * ls = letter-spacing
  * t/s/m/l/h = tiny/small/medium/large/huge
  *
- * @category   GarthCSS
+ * @category   ObjectOrientedCSS
  * @package    Helper
  * @subpackage Font.Spacing
  */
@@ -392,7 +392,7 @@ h6, .h6 { color: #333333; font-size: 11.9px/1.5em; }
 /**
  * Line Height
  *
- * @category   GarthCSS
+ * @category   ObjectOrientedCSS
  * @package    Helper
  * @subpackage Line.Height
  */
@@ -404,7 +404,7 @@ h6, .h6 { color: #333333; font-size: 11.9px/1.5em; }
 /**
  * Position
  *
- * @category   GarthCSS
+ * @category   ObjectOrientedCSS
  * @package    Helper
  * @subpackage Position
  */
@@ -423,7 +423,7 @@ h6, .h6 { color: #333333; font-size: 11.9px/1.5em; }
  * a/t/r/b/l/h/v = all/top/right/bottom/left/horizontal/vertical
  * n/t/s/m/l/h = none/tiny/small/medium/large/huge
  *
- * @category   GarthCSS
+ * @category   ObjectOrientedCSS
  * @package    Helper
  * @subpackage Space
  */
@@ -479,7 +479,7 @@ h6, .h6 { color: #333333; font-size: 11.9px/1.5em; }
 /**
  * Text
  *
- * @category   GarthCSS
+ * @category   ObjectOrientedCSS
  * @package    Helper
  * @subpackage Text
  */
@@ -497,7 +497,7 @@ h6, .h6 { color: #333333; font-size: 11.9px/1.5em; }
  * a/t/r/b/l = all/top/right/bottom/left
  * s/m/l = small/medium/large
  *
- * @category   GarthCSS
+ * @category   ObjectOrientedCSS
  * @package    Helper
  * @subpackage Text.Shadow
  */
