@@ -1,0 +1,168 @@
+/*
+Theme Name: 	FBA
+Theme URI: 		http://www.falsebehavinganimals.com
+Description: 	Custom  theme designed and built by False Behaving Animals
+Version: 			1.0
+Author: 			False Behaving Animals
+Author URI: 	http://falsebehavinganimals.com
+*/
+
+/* ---------------------------------------------------------------------------------------------------------- 
+Placeholder (to be deleted later)           ----------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------- */
+
+
+/* ---------------------------------------------------------------------------------------------------------- 
+Start here           ----------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------- */
+/* Overall */
+body{background-color: black;color: white;}
+h1,h2,h3,h4,h5,h6{font-family: 'HelveticaNeue-CondensedBold', sans-serif;color: #969696;}
+.df{font-family: 'HelveticaNeue-CondensedBold', sans-serif;}
+a{color: #969696;}
+a:hover {color: #ffffff;text-decoration: none;}
+.uppercase{text-transform: uppercase;}
+.color1{color: #ffffff;}
+<<<<<<< HEAD
+=======
+.packery img {max-width: none;}
+>>>>>>> d366c19d55f17cea70051eabcb89b63b9da71da6
+
+/* Home Page */
+img.bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+	
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+	
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  img.bg {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+}
+
+.fill {width: 100%}
+.navHit {width: 360px; height: 400px; position: absolute; z-index: 100}
+/* Main Menu */
+#menu-main{background-image: url(../img/louisandco.png); background-repeat: no-repeat;padding: 50px;background-position: -12px 3px; }
+#menu-main{list-style: none;}
+#menu-main li a{font-size: 34px; line-height: 0.7em;}
+#menu-main li{transition: all .3s ease-in-out;-moz-transition: all .3s ease-in-out; /* Firefox 4 */-webkit-transition: all .3s ease-in-out; /* Safari and Chrome */-o-transition: all .3s ease-in-out; /* Opera */}
+#menu-main li:hover .sub-menu{opacity: 1;height: 50px;}
+#menu-main > li:hover{padding: 10px 0 10px 0;}
+.current-menu-item > a{color: #ffffff;}
+
+.page-template-page-images-php #menu-main > li:first-child{position: relative;top:-55px;} /* move co to top */
+.page-template-page-images-php #menu-main > li:first-child:hover{padding: 0px;} /* co in menu */
+
+.page-template-page-images-php .current-menu-item{position: relative;top:-28px;}
+.page-template-page-images-php #menu-main > li.current-menu-item:hover{padding: 0px;}
+
+.page-template-page-images-php .current-menu-item .sub-menu{float: right;opacity: 1;height: auto;overflow: visible;position: relative;top:10px; }
+.page-template-page-images-php .current-menu-item .sub-menu li{display: inline;margin-left:20px;}
+
+/* SubMenu */
+#menu-main li .sub-menu li a{font-size: 18px;}
+.sub-menu li{list-style: none;line-height: 0.9em}
+.sub-menu{margin: 0px;height: 0px; opacity:0; overflow: hidden;transition: all .3s ease-in-out;-moz-transition: all .3s ease-in-out; /* Firefox 4 */-webkit-transition: all .3s ease-in-out; /* Safari and Chrome */-o-transition: all .3s ease-in-out; /* Opera */}
+
+/* Footer menu */
+.navbar-inverse .navbar-inner {background-image: none; background-color: #000000;}
+
+
+/* Page Nav */
+header{display: block;position: fixed;top: 0px;z-index: 999;width: 100%;height: 113px;overflow: hidden;background-color: #000000; background-color: rgba(0,0,0,0.7) }
+header:hover{height: 400px;}
+
+/* Contact Form */
+.contactForm input, .contactForm textarea{background-color: #222222;border-radius: 0px; border-color: #333333}
+.contactForm input{height: 30px}
+
+/* Footer */
+.socialIcons li a{background-color: #969696;border-radius: 25px;padding: 3px !important;color: #000000;width:25px; text-align: center;margin-top: 5px; margin-right:10px }
+.socialIcons i{color: #FFFFFF}
+/* ---------------------------------------------------------------------------------------------------------- 
+Interactive           
+---------------------------------------------------------------------------------------------------------- */
+.transition {
+transition: all .3s ease-in-out;
+-moz-transition: all .3s ease-in-out; /* Firefox 4 */
+-webkit-transition: all .3s ease-in-out; /* Safari and Chrome */
+-o-transition: all .3s ease-in-out; /* Opera */
+}
+
+/* ---------------------------------------------------------------------------------------------------------- 
+Packery           
+---------------------------------------------------------------------------------------------------------- */
+
+*{
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+
+.packery {
+  max-width: 100%;
+  top:74px;
+}
+
+.packery img {max-width: none;}
+/* clearfix */
+.packery:after {
+  content: ' ';
+  display: block;
+  clear: both;
+}
+
+/* both item and item content change size */
+.itemPack.is-expanded, .itemPack.is-expanded img{
+/*   width: 180px; */
+  width: 100%;
+  height: auto;
+}
+
+.itemPack:hover { cursor: pointer; }
+
+.itemPack:hover {
+  opacity: 0.8
+
+}
+
+.itemPack.is-expanded {
+  z-index: 2;
+}
+
+
+.itemPack { float: left; }
+
+.itemPack img { display: block; height:250px }
+
+.is-hidden { display: none; }
+
+/* ---------------------------------------------------------------------------------------------------------- 
+Responsive           
+---------------------------------------------------------------------------------------------------------- */
+
+
+/* Large desktop */
+@media (min-width: 1200px) {  }
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { }
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {  }
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) { }
