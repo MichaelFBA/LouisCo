@@ -23,7 +23,7 @@ a{color: #969696;}
 a:hover {color: #ffffff;text-decoration: none;}
 .uppercase{text-transform: uppercase;}
 .color1{color: #ffffff;}
-img {max-width: none;}
+.packery img {max-width: none;}
 
 /* Home Page */
 img.bg {
