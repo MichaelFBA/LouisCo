@@ -105,6 +105,7 @@ Packery
 
 .packery {
   max-width: 100%;
+  top:74px;
 }
 
 /* clearfix */
