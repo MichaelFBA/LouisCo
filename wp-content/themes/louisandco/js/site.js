@@ -26,6 +26,21 @@ if( $('.current-menu-item').index() >= 2 ){
 $('.packery')
 
 
+
+$('#menu-main').hover(
+	function() {
+	$("header").css('height', '400px');
+},
+function () {
+    $("header").css('height', '113px');
+  }
+);
+
+
+
+
+
+
 /* ========================================================================================================================
 
 	Packery

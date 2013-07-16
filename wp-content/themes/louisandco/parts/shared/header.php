@@ -11,6 +11,16 @@
 				    'menu_class' => 'uppercase fsl df man mtm transition'
 				));
 			?>
+			
+			<?php 
+				wp_nav_menu( array(
+				    'menu'       => 'Sub',
+				    'depth'      => 2,
+				    'container'  => false,
+				    'menu_class' => 'uppercase pull-right secondMenu'
+				));
+			?>
+			
 		</div>
 	</div>
 </div>

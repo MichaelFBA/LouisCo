@@ -48,9 +48,9 @@ img.bg {
 }
 
 .fill {width: 100%}
-.navHit {width: 360px; height: 400px; position: absolute; z-index: 100}
+
 /* Main Menu */
-#menu-main{background-image: url(../img/louisandco.png); background-repeat: no-repeat;padding: 50px;background-position: -12px 3px; }
+#menu-main{background-image: url(../img/louisandco.png); background-repeat: no-repeat;padding: 50px;background-position: -12px 3px; width: 390px }
 #menu-main{list-style: none;}
 #menu-main li a{font-size: 34px; line-height: 0.7em;}
 #menu-main li{transition: all .3s ease-in-out;-moz-transition: all .3s ease-in-out; /* Firefox 4 */-webkit-transition: all .3s ease-in-out; /* Safari and Chrome */-o-transition: all .3s ease-in-out; /* Opera */}
@@ -64,8 +64,15 @@ img.bg {
 .page-template-page-images-php .current-menu-item{position: relative;top:-28px;}
 .page-template-page-images-php #menu-main > li.current-menu-item:hover{padding: 0px;}
 
-.page-template-page-images-php .current-menu-item .sub-menu{float: right;opacity: 1;height: auto;overflow: visible;position: relative;top:10px; }
+.page-template-page-images-php .current-menu-item .sub-menu{display: none }
 .page-template-page-images-php .current-menu-item .sub-menu li{display: inline;margin-left:20px;}
+
+/* Secondary Menu */
+.page-template-page-images-php .secondMenu {position: absolute; top:95px; right:50px}
+.page-template-page-images-php .secondMenu li {display: none;}
+.page-template-page-images-php .secondMenu .current-menu-item {display: block;}
+.page-template-page-images-php .secondMenu .current-menu-item > a {display: none;}
+.page-template-page-images-php .secondMenu .current-menu-item .sub-menu{float: right;opacity: 1;height: auto;overflow: visible;position: relative;top:10px; display: block; font-size:18px; font-family:  HelveticaNeue-CondensedBold, sans-serif;}
 
 /* SubMenu */
 #menu-main li .sub-menu li a{font-size: 18px;}
@@ -78,7 +85,7 @@ img.bg {
 
 /* Page Nav */
 header{display: block;position: fixed;top: 0px;z-index: 999;width: 100%;height: 113px;overflow: hidden;background-color: #000000; background-color: rgba(0,0,0,0.7) }
-header:hover{height: 400px;}
+
 
 /* Contact Form */
 .contactForm input, .contactForm textarea{background-color: #222222;border-radius: 0px; border-color: #333333}
