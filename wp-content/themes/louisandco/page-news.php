@@ -14,18 +14,13 @@
 
 <div class="container mth">
 	<div class="row mtl">
-		<div class="span4">
-			<h2 class="uppercase pan mbn"><?php the_title(); ?></h2>
-			<?php the_content(); ?>
+		<div class="span4 widget-sidebar">
 			
 			<!-- Sidebar Widget -->
 			<?php 
 				if ( dynamic_sidebar('News Sidebar') ) : 
-				?>
-				<?php
-				else : 
-				?>
-			<?php endif; ?>
+			  endif; 
+			  ?>
 			
 		</div>
 		<div class="span8">
@@ -40,10 +35,13 @@
 		?>
 			<div class="post">
 				<p class="pan man fss uppercase"><?php the_date(); ?></p>
-				<h2 class="uppercase pan mtn"><?php the_title(); ?></h2>
-				<?php the_post_thumbnail(); ?>
+				<a href="<?php the_permalink();?>" target="_parent">
+					<h2 class="uppercase pan mtn"><?php the_title(); ?></h2>
+				</a>
+				<?php the_post_thumbnail('medium'); ?>
 				<p class="mtm"><?php echo get_the_excerpt(); ?></p>
 			</div>
+			<hr>
 		<?php endwhile; ?>
 		</div>
 	</div>

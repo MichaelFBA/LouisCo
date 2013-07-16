@@ -40,6 +40,7 @@ register_sidebar(array(
 
 //Add Custom image size
 add_image_size('micro', 67, 67, true);
+add_image_size('medium', 770, 550, true);
 
 /* ========================================================================================================================
 
