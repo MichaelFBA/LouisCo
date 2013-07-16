@@ -28,8 +28,6 @@ if($rows){
 	} 
 } 
 ?>
-
-
 <div class="packery">
 
 <?php

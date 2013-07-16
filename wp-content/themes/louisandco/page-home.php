@@ -20,16 +20,19 @@
 				    'menu'       => 'Main',
 				    'depth'      => 2,
 				    'container'  => false,
-				    'menu_class' => 'uppercase fsl df man mth transition front',
+				    'menu_class' => 'uppercase fsl df man mth transition front relative',
 				    //'walker' 		 => new wp_bootstrap_navwalker()
 				));
 			?>
 		</div>
 	</div>
 </div>
-
 <div class="background-images back">
  <?php 
+ echo get_ID_by_slug('index');
+ $args = array('class'	=> "grayscale bg opacity0 opacity100 transition back page-2" );
+ echo get_the_post_thumbnail( get_ID_by_slug('home'), 'large', $args );
+
  $queryHome = new WP_Query(array(
   	'post_type'			 => 'page', 
   	'post_status'		 => 'publish',
@@ -42,7 +45,7 @@
      ) 
   );
 	while ( $queryHome->have_posts() ) : $queryHome->the_post();
-	$attr = array('class'	=> "bg opacity0 transition back page-". get_the_id());
+	$attr = array('class'	=> "grayscale bg opacity0 transition back page-". get_the_id());
 	the_post_thumbnail( 'large', $attr );
 	endwhile;
 	?> 

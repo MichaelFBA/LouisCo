@@ -17,6 +17,16 @@
 		<div class="span4">
 			<h2 class="uppercase pan mbn"><?php the_title(); ?></h2>
 			<?php the_content(); ?>
+			
+			<!-- Sidebar Widget -->
+			<?php 
+				if ( dynamic_sidebar('News Sidebar') ) : 
+				?>
+				<?php
+				else : 
+				?>
+			<?php endif; ?>
+			
 		</div>
 		<div class="span8">
 	<?php

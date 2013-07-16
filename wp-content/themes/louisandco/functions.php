@@ -30,12 +30,14 @@ Uncomment register_nav_menus to enable a single menu with the title of "Primary 
 add_theme_support('post-thumbnails');
 //Add menu Support
 add_theme_support('menus');
+
 //Register Sidebar Widget
 register_sidebar(array(
-  'name' => 'First Widget',
+  'name' => 'News Sidebar',
   'before_widget' => '',
   'after_widget' => ''
 ));
+
 //Add Custom image size
 add_image_size('micro', 67, 67, true);
 
@@ -278,5 +280,15 @@ function nav_id_filter( $id, $item ) {
 }
 add_filter( 'nav_menu_item_id', 'nav_id_filter', 10, 2 );
 
+
+//Get pageID from slug
+function get_ID_by_slug($page_slug) {
+    $page = get_page_by_path($page_slug);
+    if ($page) {
+        return $page->ID;
+    } else {
+        return null;
+    }
+}
 
 ?>

@@ -37,6 +37,22 @@ function () {
 );
 
 
+/* Filtering packery */
+$('.tax').on('click',function(e){
+	pde(e); //Prevent Default
+	var textValue = $(this).text(); //Detect text
+	
+	if( $(this).hasClass('label-info') ){
+		$('.itemPack[data-tag*="'+textValue+'"]').hide();
+		pckry.layout();
+		$(this).removeClass('label-info');
+	}else{
+		$('.itemPack[data-tag*="'+textValue+'"]').show();
+		pckry.layout();
+		$(this).addClass('label-info');
+	}
+})
+
 
 
 
@@ -47,33 +63,6 @@ function () {
 
 ======================================================================================================================== */
 
-/*
-  var container = document.querySelector('.packery');
-  var pckry = new Packery( container );
-  
-  eventie.bind( container, 'click', function( event ) {
-    // don't proceed if item content was not clicked on
-    var target = event.target;
-    if ( !classie.has( target, 'item-content' )  ) {
-      return;
-    }
-    var itemElem = target.parentNode;
-    var isExpanded = classie.has( itemElem, 'is-expanded' );
-    classie.toggleClass( itemElem, 'is-expanded' );
-  
-    if ( isExpanded ) {
-      // if shrinking, just layout
-      pckry.layout();
-    } else {
-      // if expanding, fit it
-      pckry.fit( itemElem );
-    }
-  });
-*/
-  
-  
-
-
 
  var container = document.querySelector('.packery');
   var pckry;
@@ -81,7 +70,8 @@ function () {
   imagesLoaded( container, function() {
     pckry = new Packery( container, {
       itemSelector: '.itemPack',
-      gutter: 10
+      gutter: 5,
+      transitionDuration:2
     });
   });
   
@@ -108,6 +98,7 @@ function () {
     } else {
       // if expanding, fit it
       pckry.fit( itemElem );
+      jQuery('html, body').stop().animate({scrollTop: $(target).offset().top}, 500);
     }
   });
 
