@@ -16,6 +16,8 @@ Required external files
 ======================================================================================================================== */
 
 require_once('external/starkers-utilities.php');
+// Register Custom Navigation Walker
+require_once('wp_bootstrap_navwalker.php');
 
 /* ========================================================================================================================
 
@@ -262,6 +264,19 @@ Extras
 ======================================================================================================================== */
 
 
+/* Customise Navigation classes */
+//	Reduce nav classes, leaving only 'current-menu-item'
+function nav_class_filter( $var ) {
+	return is_array($var) ? array_intersect($var, array('current-menu-item')) : '';
+}
+add_filter('nav_menu_css_class', 'nav_class_filter', 100, 1);
+
+//	Add page slug as nav IDs
+function nav_id_filter( $id, $item ) {
+	//print_r($item);
+	return 'page-'.$item->object_id;
+}
+add_filter( 'nav_menu_item_id', 'nav_id_filter', 10, 2 );
 
 
 ?>

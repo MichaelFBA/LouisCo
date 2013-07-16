@@ -1,5 +1,30 @@
 jQuery(document).ready(function ($) {
 
+/* 
+========================================================================================================================
+
+	Homepage Images
+
+======================================================================================================================== */
+
+$('#menu-main > li').mouseover(function() {
+	//remove all images
+	$(".background-images img").removeClass('opacity100');
+	//display feature image
+	$(".background-images img."+ $(this).attr('id') ).addClass('opacity100');
+})
+
+
+
+/* Menu - move dom element for main menu  */
+
+if( $('.current-menu-item').index() >= 2 ){
+	$("#menu-main li:eq(0)").after($('.current-menu-item'));
+}
+
+/* Zoom Images like old site hover */
+$('.packery')
+
 
 /* ========================================================================================================================
 
@@ -73,9 +98,7 @@ jQuery(document).ready(function ($) {
 
 
 
-
-
-
+/* 
 
 /* ========================================================================================================================
 
