@@ -11,6 +11,7 @@
  */
 ?>
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
+<!-- incase i need to check taxonomys dont delete
 <?php
 $taxArray = array();
 $rows = get_field('image_gallery_lco');
@@ -28,6 +29,7 @@ if($rows){
 	} 
 } 
 ?>
+-->
 <div class="packery">
 
 <?php

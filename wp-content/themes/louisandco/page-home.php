@@ -29,9 +29,8 @@
 </div>
 <div class="background-images back">
  <?php 
- echo get_ID_by_slug('index');
- $args = array('class'	=> "grayscale bg opacity0 opacity100 transition back page-2" );
- echo get_the_post_thumbnail( get_ID_by_slug('home'), 'large', $args );
+ $args = array('class'	=> "grayscale bg opacity0 opacity100 transition back page-".get_option('page_on_front') );
+ echo get_the_post_thumbnail( get_option('page_on_front'), 'large', $args );
 
  $queryHome = new WP_Query(array(
   	'post_type'			 => 'page', 
