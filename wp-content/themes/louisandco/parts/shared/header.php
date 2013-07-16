@@ -2,7 +2,7 @@
 
 <div class="container-fluid">
 	<div class="row">
-		<div class="span12">
+		<div class="span fill">
 			<?php 
 				wp_nav_menu( array(
 				    'menu'       => 'Main',
