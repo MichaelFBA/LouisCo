@@ -77,9 +77,9 @@ img.grayscale {
 .page-template-page-images-php .current-menu-item{position: relative;top:-28px;}
 .page-template-page-images-php #menu-main > li.current-menu-item:hover{padding: 0px;}
 
+
 .page-template-page-images-php .current-menu-item .sub-menu{display: none }
 .page-template-page-images-php .current-menu-item .sub-menu li{display: inline;margin-left:20px;}
-
 /* Secondary Menu */
 .page-template-page-images-php .secondMenu {position: absolute; top:95px; right:50px}
 .page-template-page-images-php .secondMenu li {display: none;}
