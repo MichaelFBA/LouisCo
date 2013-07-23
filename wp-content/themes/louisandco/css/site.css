@@ -24,6 +24,7 @@ a{color: #969696;}
 a:hover {color: #ffffff;text-decoration: none;}
 .uppercase{text-transform: uppercase;}
 .color1{color: #ffffff;}
+.color2{color:#969696 !important; }
 .packery img {max-width: none;}
 
 /* Home Page */
@@ -83,6 +84,7 @@ img.grayscale {
 /* Secondary Menu */
 .page-template-page-images-php .secondMenu {position: absolute; top:95px; right:50px}
 .page-template-page-images-php .secondMenu li {display: none;}
+.page-template-page-images-php .secondMenu li a{color:#ffffff}
 .page-template-page-images-php .secondMenu .current-menu-item {display: block;}
 .page-template-page-images-php .secondMenu .current-menu-item > a {display: none;}
 .page-template-page-images-php .secondMenu .current-menu-item .sub-menu{float: right;opacity: 1;height: auto;overflow: visible;position: relative;top:10px; display: block; font-size:18px; font-family:  HelveticaNeue-CondensedBold, sans-serif;}
@@ -160,11 +162,109 @@ Packery
 }
 
 
-.itemPack { float: left;opacity: 0.8 }
+.itemPack { float: left;opacity: 0.8;margin: 5px;width:250px;}
 
-.itemPack img { display: block; height:250px; }
+.itemPack img { display: block;width:100%;}
 
 .is-hidden { display: none; }
+
+
+/* ---------------------------------------------------------------------------------------------------------- 
+Isotope           
+---------------------------------------------------------------------------------------------------------- */
+
+/**** Isotope Filtering ****/
+
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/**** Isotope CSS3 transitions ****/
+
+.isotope,
+.isotope .isotope-item {
+  -webkit-transition-duration: 0.8s;
+     -moz-transition-duration: 0.8s;
+      -ms-transition-duration: 0.8s;
+       -o-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+      -ms-transition-property:     -ms-transform, opacity;
+       -o-transition-property:      -o-transform, opacity;
+          transition-property:         transform, opacity;
+}
+
+/* ---------------------------------------------------------------------------------------------------------- 
+Custom image slider           
+---------------------------------------------------------------------------------------------------------- */
+html,body{height:100%;}
+
+
+/* faster sliding speed */
+.carousel-inner > .item {
+    -webkit-transition: 0.3s ease-in-out left;
+    -moz-transition: 0.3s ease-in-out left;
+    -o-transition: 0.3s ease-in-out left;
+    transition: 0.3s ease-in-out left;
+}
+
+#homeCarousel .carousel-inner > .item > img {height: 100%;margin: auto;width: auto;}
+#homeCarousel .carousel-inner > .item{height: 100%;}
+
+/* keep full widget on smaller screens */
+@media (max-width: 767px) { 
+	body {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+
+
+#wrapper {
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	background-color: #fff;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.caroufredsel_wrapper {
+	background-color: #fff;
+	top: auto !important;
+	bottom: 0 !important;
+}
+#carousel {
+	height: 66%;
+	min-height: 200px;
+	position: absolute;
+	top: auto;
+	left: 0;
+}
+#carousel img {
+	height: 100%;
+	width: auto;
+	display: block;
+	float: left;
+}
+
 
 /* ---------------------------------------------------------------------------------------------------------- 
 Responsive           

@@ -11,35 +11,64 @@
  */
 ?>
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
-<!-- incase i need to check taxonomys dont delete
-<?php
-$taxArray = array();
-$rows = get_field('image_gallery_lco');
-if($rows){
- foreach($rows as $row){
-		forEach($row['sub_taxonomy'] as $a){
-			$taxName = get_term_by( 'id', $a, 'post_tag' );
-			
-			//Check if in array - add if 
-			if (!in_array($taxName->name, $taxArray)) {
-				array_push($taxArray,$taxName->name);
-			}
-			
-		};  
-	} 
-} 
-?>
--->
-<div class="packery">
 
-<?php
-$rows = get_field('image_gallery_lco');
-if($rows){ ?>
- <?php foreach($rows as $row){?>
-		<div class="itemPack" data-tag="<?php forEach($row['sub_taxonomy'] as $a){$taxName = get_term_by( 'id', $a, 'post_tag' );echo $taxName->name . ' ';}  ?>">
-  		<img  src="<?php echo $row['sub_images'] ?>" />
-  	</div>
+<!--
+<div class="packery isotope">
+	<?php
+	$rows = get_field('image_gallery_lco');
+	if($rows){ ?>
+	 <?php foreach($rows as $row){?>
+			<div class="itemPack <?php forEach($row['sub_taxonomy'] as $a){$taxName = get_term_by( 'id', $a, 'post_tag' );echo strtolower($taxName->name) . ' ';}  ?>">
+			<?php echo wp_get_attachment_image( $row['sub_images'], 'thumbnail'); ?>
+	  	</div>
+		<?php } ?>
 	<?php } ?>
-<?php } ?>
+</div>
+-->
+
+
+<div id="wrapper">
+	<div id="carousel">
+		<?php
+			$rows = get_field('image_gallery_lco');
+			if($rows){ ?>
+			 <?php foreach($rows as $row){?>
+		      <?php echo wp_get_attachment_image( $row['sub_images'], 'large'); ?>
+				<?php } ?>
+			<?php } ?>  
+	</div>
+	
+</div>
+
+
+<!--
+<div class="container-fluid fill">
+<div id="homeCarousel" class="carousel slide">
+  <div class="carousel-inner">
+			<?php
+			$active = true;
+			$rows = get_field('image_gallery_lco');
+			if($rows){ ?>
+			 <?php foreach($rows as $row){?>
+				<div class="<?php if($active){echo 'active ';$active=false;} ?> item">
+		      <?php echo wp_get_attachment_image( $row['sub_images'], 'large'); ?>
+		    </div>
+				<?php } ?>
+			<?php } ?>  
+    
+    
+  </div>
+  <div class="pull-center">
+	<a class="carousel-control left" href="#homeCarousel" data-slide="prev">‹</a>
+	<a class="carousel-control right" href="#homeCarousel" data-slide="next">›</a>
+  </div>
+</div>
+</div>
+-->
+
+
+
+
+
 
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer' ) ); ?>

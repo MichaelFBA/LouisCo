@@ -1,6 +1,8 @@
 <header class="transition">
+<!--
 <span class="label tax label-info">Personal</span>
 <span class="label tax label-info">Commercial</span>
+-->
 <div class="container-fluid">
 	<div class="row">
 		<div class="span12">
