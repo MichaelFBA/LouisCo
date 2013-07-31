@@ -81,14 +81,10 @@ function starkers_script_enqueuer()
   wp_enqueue_script('bootstrapJS');
   wp_register_script('imagesLoaded', get_template_directory_uri() . '/js/imagesloaded.pkgd.min.js', '', '', true);
   wp_enqueue_script('imagesLoaded');
-/*
-  wp_register_script('packery', get_template_directory_uri() . '/js/packery.pkgd.js', '', '', true);
-  wp_enqueue_script('packery');
-*/
   wp_register_script('isotope', get_template_directory_uri() . '/js/jquery.isotope.min.js', '', '', true);
   wp_enqueue_script('isotope');
-   wp_register_script('carousel', get_template_directory_uri() . '/js/jquery.carouFredSel-6.2.1-packed.js', '', '', true);
-  wp_enqueue_script('carousel');
+  wp_register_script('galleria', get_template_directory_uri() . '/js/galleria-1.2.9.min.js', '', '', true);
+  wp_enqueue_script('galleria');
   
   
   

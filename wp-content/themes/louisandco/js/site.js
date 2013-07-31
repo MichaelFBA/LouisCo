@@ -35,75 +35,6 @@ function () {
 
 /* ========================================================================================================================
 
-	Packery
-
-======================================================================================================================== */
-/*
-
-
- var container = document.querySelector('.packery');
-  var pckry;
-  
-  if(container){
-	  imagesLoaded( container, function() {
-	    pckry = new Packery( container, {
-	      itemSelector: '.itemPack',
-	      gutter: 5,
-	      transitionDuration:2
-	    });
-	  });
-	 
-
-
-  
-  eventie.bind( container, 'click', function( event ) {
-    // don't proceed if item content was not clicked on
-    
-    var target = event.target;
-    console.log(target)
-    if ( !classie.has( target.parentNode, 'itemPack' )  ) {
-    	return;
-    }
-    
-    var itemElem = target.parentNode;
-    console.log(itemElem)
-    var isExpanded = classie.has( itemElem, 'is-expanded' );
-    classie.toggleClass( itemElem, 'is-expanded' );
-  
-    if ( isExpanded ) {
-      // if shrinking, just layout
-      pckry.layout();
-    } else {
-      // if expanding, fit it
-      pckry.fit( itemElem );
-      jQuery('html, body').stop().animate({scrollTop: $(target).offset().top}, 500);
-    }
-  });
-} 
-
-
-// Filtering packery 
-$('.tax').on('click',function(e){
-	pde(e); //Prevent Default
-	var textValue = $(this).text(); //Detect text
-	
-	if( $(this).hasClass('label-info') ){
-		$('.itemPack[data-tag*="'+textValue+'"]').hide();
-		pckry.layout();
-		$(this).removeClass('label-info');
-	}else{
-		$('.itemPack[data-tag*="'+textValue+'"]').show();
-		pckry.layout();
-		$(this).addClass('label-info');
-	}
-})
-
-*/
-
-/* 
-
-/* ========================================================================================================================
-
 	Scroll to 
 
 ======================================================================================================================== */
@@ -146,33 +77,33 @@ $('.tax').on('click',function(e){
 	Isotope
 	
 ======================================================================================================================== */
-var $container = $('.isotope');																		// initalise isotope
+var $container = $('.isotope');	
+var $carousel = $('#carousel');
+var $wrapper = $('#wrapper');
+var $window = $(window);																	// initalise isotope
+var galleriaReady = false;
+	
 $container.imagesLoaded( function(){
   $container.isotope({
   	itemSelector : '.itemPack',
   });
-  
-  var $carousel = $('#carousel');
-	var $wrapper = $('#wrapper');
-	var $window = $(window);
- 
-	$window.resize(function() {
-		$wrapper.height( $window.height() * 1 );
-		$carousel.height( $window.height() * 1 );
-	}).resize();
- 
-	$carousel.carouFredSel({
-		width: '100%',
-		scroll: 1,
-		items: {
-			visible: 'odd+2',
-			start: -1,
-			width: 'variable',
-			height: 'variable'
+	
+
+ // change size of clicked element
+
+ $('.itemPack').on( 'click', function(e){
+ 	var index = $(this).index();
+ 	$('#galleria').fadeIn('medium', function() {
+		
+		if(galleriaReady){
+			$('#galleria').data('galleria').show( indexVar );
+		}else{
+			runGalleria(index)
 		}
-	});
-  
-  
+		
+	})
+ });
+ 	 
 });
 
 $('.secondMenu a').on('click',function(e){												// bind second menu click event
@@ -191,15 +122,26 @@ $('.secondMenu a').on('click',function(e){												// bind second menu click 
   
 });
 
+function runGalleria(indexVar){
 
-// change size of clicked element
-/*
-$container.delegate( '.itemPack', 'click', function(){
-  $(this).toggleClass('is-expanded');
-  $container.isotope('reLayout');
-  jQuery('html, body').stop().animate({scrollTop: $(this).offset().top}, 500);
+Galleria.loadTheme('http://localhost/clients/louisandco/wp-content/themes/louisandco/external/classic/galleria.classic.min.js');
+Galleria.configure({
+	transition: 'fade',
+  imageCrop: false,
+  responsive:true,
+  showInfo:false,
+  showCounter:true,
+  thumbnails:false,
+  trueFullscreen:true,
+  show:indexVar
 });
-*/
+Galleria.run('#galleria');
+
+galleriaReady = true;																					// boolean to check when gallery ready
+$('#galleria').css('bottom','0px').hide()
+$('#galleria').css('right','0px').fadeIn()
+}
+
 
 
 
@@ -220,7 +162,7 @@ $('.home #menu-main .sub-menu a').on('click',function(e){					// only bind click
 })
 
 if ( (loadPageVar('filter') == '') ) {														// check if pagevar has been sent
-//do nothing																											// if no filter pagevar do nothing
+	$container.isotope({ filter: '*' });														// if no filter dont filter any
 }else{
 	$container.isotope({ filter: '.'+ loadPageVar('filter') });     // filter isotope via pagevar 
 }
