@@ -96,7 +96,8 @@ $container.imagesLoaded( function(){
  	$('#galleria').fadeIn('medium', function() {
 		
 		if(galleriaReady){
-			$('#galleria').data('galleria').show( indexVar );
+			$('#galleria').data('galleria').show( index );
+			$('.isotope').hide();
 		}else{
 			runGalleria(index)
 		}
@@ -133,14 +134,45 @@ Galleria.configure({
   showCounter:true,
   thumbnails:false,
   trueFullscreen:true,
-  show:indexVar
+  show:indexVar,
+  extend: function() {
+		// create the button and append it
+    this.addElement('button').appendChild('container','button');
+
+    // Add text & click event using jQuery
+    this.$('button').append('<span class="icon-closeBtn"></span>').click(function() {
+        $('.isotope').show();
+        $('#galleria').fadeOut();
+    });
+	}
 });
 Galleria.run('#galleria');
-
+																															// this runs the first time an image is clicked
 galleriaReady = true;																					// boolean to check when gallery ready
-$('#galleria').css('bottom','0px').hide()
-$('#galleria').css('right','0px').fadeIn()
+$('#galleria').css('bottom','0px').hide()											// change the position of the gallery
+$('#galleria').css('right','0px').fadeIn()										// fade in the gallery
+$('.isotope').hide();																					// hide the background
+
 }
+
+//Bind Keys
+$(document).bind("keydown", function(e){
+  if(e.keyCode== 37){
+    $('#galleria').data('galleria').prev();
+  }else if(e.keyCode== 38){
+    $('#galleria').data('galleria').next();
+  }else if(e.keyCode== 39){
+    $('#galleria').data('galleria').next();
+  }else if(e.keyCode== 40){
+    $('#galleria').data('galleria').prev();
+  }else if(e.keyCode== 27){																		// esc key		
+  	$('.isotope').show();
+    $('#galleria').fadeOut();
+  }else{
+    return true;
+  }
+  return false;
+});
 
 
 

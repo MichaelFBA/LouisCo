@@ -9,3 +9,14 @@
 	font-style: normal;
 }
 
+@font-face {
+	font-family: 'cross';
+	src:url('../fonts/cross.eot');
+	src:url('../fonts/cross.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/cross.woff') format('woff'),
+		url('../fonts/cross.ttf') format('truetype'),
+		url('../fonts/cross.svg#cross') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+

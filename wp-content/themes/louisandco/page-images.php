@@ -17,10 +17,12 @@
 	<?php
 	$rows = get_field('image_gallery_lco');
 	//Sort via taxonomy
-	function sortTax($a, $b) {
+	/*
+function sortTax($a, $b) {
   	return $a["sub_taxonomy"] - $b["sub_taxonomy"];
 	}
 	usort($rows, "sortTax");
+*/
 	if($rows){ ?>
 	 <?php foreach($rows as $row){?>
 	 	<?php $tag = get_tag($row['sub_taxonomy']); ?> 
@@ -32,6 +34,7 @@
 </div>
 
 <div id="galleria">
+
 <?php
 	if($rows){ ?>
 	 <?php foreach($rows as $row){?>

@@ -85,6 +85,8 @@ function starkers_script_enqueuer()
   wp_enqueue_script('isotope');
   wp_register_script('galleria', get_template_directory_uri() . '/js/galleria-1.2.9.min.js', '', '', true);
   wp_enqueue_script('galleria');
+  wp_register_script('customFontCross', get_template_directory_uri() . '/js/lte-ie7.js', '', '', true);
+  wp_enqueue_script('customFontCross');
   
   
   
