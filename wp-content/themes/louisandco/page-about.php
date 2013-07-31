@@ -33,7 +33,18 @@
 		</div>
 		<div class="span4">
 			<h2 class="uppercase pan mbn">Services</h2>
-			<?php the_content(); ?>
+			<?php the_field('services_copy'); ?>
+		 <ul class="unstyled">
+		 <?php 
+		 $rows = get_field('service_items');
+		 if($rows){ ?>
+		 <?php foreach($rows as $row){?>
+		 	 <?php $image = wp_get_attachment_image_src($row['service_item_image']); ?>
+		 	 <li class="mbs"><img src="<?php echo $image[0]; ?>" class="mrs"/><?php echo $row['service_item_text']; ?> </li>
+
+			<?php } ?>
+		<?php } ?>
+		 </ul>
 		</div>
 		
 		<?php endwhile; ?>

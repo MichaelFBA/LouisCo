@@ -12,8 +12,13 @@
 		
 		<!--[if lt IE 9]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/lte-ie7.js"></script>
 			<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/ie.css" type="text/css" media="screen">
 		<![endif]-->
+		
+		<script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmepGLYO31VOHdYAudfnU7oU0zTNUlfDc&sensor=false">
+    </script>
 		
 		<?php wp_head(); ?>
 	</head>

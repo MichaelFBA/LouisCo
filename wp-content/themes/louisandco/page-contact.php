@@ -46,7 +46,7 @@
 		</div>
 		<?php endwhile; ?>
 		<div class="span8">
-			<iframe width="770" height="570" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;q=6%2F13+Kirketon+Rd,+Darlinghurst+New+South+Wales+2010,+Australia&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=32.445554,62.050781&amp;ie=UTF8&amp;geocode=FTMZ-_0dbHQDCQ&amp;split=0&amp;hq=&amp;hnear=6%2F13+Kirketon+Rd,+Darlinghurst+New+South+Wales+2010,+Australia&amp;ll=-33.875661,151.221356&amp;spn=0.008293,0.015149&amp;t=m&amp;z=14&amp;output=embed"></iframe>
+			<div id="map-canvas"/></div>
 		</div>
 	
 

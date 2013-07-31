@@ -34,7 +34,6 @@ function sortTax($a, $b) {
 </div>
 
 <div id="galleria">
-
 <?php
 	if($rows){ ?>
 	 <?php foreach($rows as $row){?>

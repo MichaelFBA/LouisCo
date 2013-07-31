@@ -17,9 +17,10 @@ $('#menu-main > li').mouseover(function() {
 
 
 /* Menu - move dom element for main menu  */
-
-if( $('#menu-main > .current-menu-item').index() >= 2 ){
-	$("#menu-main li:eq(0)").after($('#menu-main > .current-menu-item'));
+if($('.page-template-page-images-php')){
+	if( $('#menu-main > .current-menu-item').index() >= 2 ){
+		$("#menu-main li:eq(0)").after($('#menu-main > .current-menu-item'));
+	}
 }
 
 /* Menu Hover */
@@ -186,11 +187,14 @@ $(document).bind("keydown", function(e){
 ======================================================================================================================== */
 
 $('.home #menu-main .sub-menu a').on('click',function(e){					// only bind click event on homepage
-	pde(e); 																												// prevent default
-	var innerText = $(this).text().toLowerCase(); 									// get inner text of a tag
-	var url = $(this).parent().parent().parent().children('a').attr('href');
-	url += '?filter=' + innerText; 																	// assign filter to url
-	window.location.assign(url); 																		// load page with new url - includes filter
+	var str = $(this).text().toLowerCase();													// add text to string
+	if(str.search( 'download' ) != 0){															// check if download is included in text
+		pde(e); 																												// prevent default
+		var innerText = $(this).text().toLowerCase(); 									// get inner text of a tag
+		var url = $(this).parent().parent().parent().children('a').attr('href');
+		url += '?filter=' + innerText; 																	// assign filter to url
+		window.location.assign(url); 																		// load page with new url - includes filter
+	}
 })
 
 if ( (loadPageVar('filter') == '') ) {														// check if pagevar has been sent
@@ -247,11 +251,58 @@ function loadPageVar(sVar) {																			// returns pagevar is it exists
 
   /* ========================================================================================================================
 	
-	END READY
+	Google Maps
 	
 ======================================================================================================================== */
 
 
+function initialize() {
+var myLatlng = new google.maps.LatLng(-33.875661, 151.221356)
+var styles = [
+  {
+    "stylers": [
+      { "visibility": "on" },
+      { "saturation": -100 }
+    ]
+  }
+];
+
+  var mapOptions = {
+    center: myLatlng,
+    zoom: 14,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  
+  var map = new google.maps.Map(document.getElementById("map-canvas"),
+      mapOptions);
+  map.setOptions({styles: styles}); 
+  
+    var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: 'Uluru (Ayers Rock)'
+  });
+  google.maps.event.addListener(marker, 'click', toggleBounce);
+  
+  function toggleBounce() {
+
+	  if (marker.getAnimation() != null) {
+	    marker.setAnimation(null);
+	  } else {
+	    marker.setAnimation(google.maps.Animation.BOUNCE);
+	  }
+	}
+     
+}
+if($('.page-template-page-contact-php').length != 0){
+	initialize();
+}
+
+  /* ========================================================================================================================
+	
+	END READY
+	
+======================================================================================================================== */
 
 
 });
