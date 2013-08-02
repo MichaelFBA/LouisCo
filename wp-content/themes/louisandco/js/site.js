@@ -89,9 +89,7 @@ $container.imagesLoaded( function(){
   	itemSelector : '.itemPack',
   });
 	
-
- // change size of clicked element
-
+ // Galleria click Event
  $('.itemPack').on( 'click', function(e){
  	var index = $(this).index();
  	$('#galleria').fadeIn('medium', function() {
@@ -102,7 +100,6 @@ $container.imagesLoaded( function(){
 		}else{
 			runGalleria(index)
 		}
-		
 	})
  });
  	 
@@ -110,17 +107,12 @@ $container.imagesLoaded( function(){
 
 $('.secondMenu a').on('click',function(e){												// bind second menu click event
 	var selector = $(this).text().toLowerCase();										// get menu text, this should relate to tag
-	pde(e);																													// crossbrowser prevent default
-  
-  
-  if($(this).hasClass('color2')){
-	  $(this).toggleClass('color2');
-	  console.log($(this).siblings());
-	  $container.isotope({ filter: '*' });
-  }else{
-	  $(this).toggleClass('color2');
-	  $container.isotope({ filter: '.itemPack'+':not(.'+ selector +')' });
-  }
+	if(selector.search( 'download' ) != 0){													// check if download is included in text
+		pde(e);																												// crossbrowser prevent defaultChecked
+		$('.secondMenu a').removeClass('selected');										// remove all selected class
+		$(this).addClass('selected');
+		$container.isotope({ filter: '.itemPack'+'.'+ selector });
+	}
   
 });
 
@@ -186,7 +178,9 @@ $(document).bind("keydown", function(e){
 	
 ======================================================================================================================== */
 
-$('.home #menu-main .sub-menu a').on('click',function(e){					// only bind click event on homepage
+
+
+$('#menu-main .sub-menu a').on('click',function(e){					// only bind click event on homepage
 	var str = $(this).text().toLowerCase();													// add text to string
 	if(str.search( 'download' ) != 0){															// check if download is included in text
 		pde(e); 																												// prevent default
@@ -201,11 +195,15 @@ if ( (loadPageVar('filter') == '') ) {														// check if pagevar has been
 	$container.isotope({ filter: '*' });														// if no filter dont filter any
 }else{
 	$container.isotope({ filter: '.'+ loadPageVar('filter') });     // filter isotope via pagevar 
+	$('.current-menu-item .sub-menu a:contains('+loadPageVar('filter').toUpperCase()+')' ).addClass('selected') //set the menu item to selected
 }
 
 function loadPageVar(sVar) {																			// returns pagevar is it exists
 	return unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape(sVar).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
 }
+
+
+
 
       
       

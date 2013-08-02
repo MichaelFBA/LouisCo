@@ -274,7 +274,7 @@ Extras
 /* Customise Navigation classes */
 //	Reduce nav classes, leaving only 'current-menu-item'
 function nav_class_filter( $var ) {
-	return is_array($var) ? array_intersect($var, array('current-menu-item')) : '';
+	return is_array($var) ? array_intersect($var, array('current-menu-item','downloadArrow')) : '';
 }
 add_filter('nav_menu_css_class', 'nav_class_filter', 100, 1);
 
