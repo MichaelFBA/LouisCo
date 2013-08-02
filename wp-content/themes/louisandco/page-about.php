@@ -12,8 +12,8 @@
 ?>
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
 
-<div class="container mth">
-	<div class="row mtl">
+<div class="container mobilePadding">
+	<div class="row">
 	<?php
 		$queryHome = new WP_Query(array(
     	'post_type'			 => 'page', 
@@ -23,15 +23,15 @@
     );
 		while ( $queryHome->have_posts() ) : $queryHome->the_post();
 		?>
-		<div class="span4">
+		<div class="span4 mbm">
 			<h2 class="uppercase pan mbn"><?php the_title(); ?></h2>
 			<?php the_content(); ?>
 		</div>
-		<div class="span4">
+		<div class="span4 mbm">
 			<h2 class="uppercase pan mbn">LOUIS MOLINES</h2>
 			<?php the_post_thumbnail(); ?>
 		</div>
-		<div class="span4">
+		<div class="span4 mbm">
 			<h2 class="uppercase pan mbn">Services</h2>
 			<?php the_field('services_copy'); ?>
 		 <ul class="unstyled">

@@ -15,12 +15,19 @@
 				));
 			?>
 			
+			<form class="contactForm hidden-phone" id="searchform" action="<?php bloginfo('home'); ?>/" method="get">
+        <fieldset>
+	        <input id="s" maxlength="150" name="s" size="20" type="text" value="" class="txt mbn" />
+	        <button type="submit"><i class="icon-search"></i></button>
+        </fieldset>
+			</form>
+			
 			<?php 
 				wp_nav_menu( array(
 				    'menu'       => 'Sub',
 				    'depth'      => 2,
 				    'container'  => false,
-				    'menu_class' => 'uppercase pull-right secondMenu'
+				    'menu_class' => 'uppercase pull-right secondMenu hidden-phone'
 				));
 			?>
 			

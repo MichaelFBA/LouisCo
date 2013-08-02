@@ -43,8 +43,8 @@
 				<p><?php echo get_the_content(); ?></p>
 			</article>
 			<hr>
-			<p class="pull-left"><?php previous_post('<i class="icon-arrow-left"></i> %', '', 'yes'); ?></p>
-			<p class="pull-right"><?php next_post('% <i class="icon-arrow-right"></i>', '', 'yes'); ?></p>
+			<p class="pull-left"><?php previous_post('<i class="icon-chevron-left fss"></i> %', '', 'yes'); ?></p>
+			<p class="pull-right"><?php next_post('% <i class="icon-chevron-right fss"></i>', '', 'yes'); ?></p>
 		</div>
 	</div>
 </div>

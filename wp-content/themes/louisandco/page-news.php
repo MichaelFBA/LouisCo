@@ -12,8 +12,8 @@
 ?>
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
 
-<div class="container mth">
-	<div class="row mtl">
+<div class="container mobilePadding">
+	<div class="row">
 		<div class="span4 widget-sidebar">
 			
 			<!-- Sidebar Widget -->
@@ -36,10 +36,11 @@
 			<div class="post">
 				<p class="pan man fss uppercase"><?php the_date(); ?></p>
 				<a href="<?php the_permalink();?>" target="_parent">
-					<h2 class="uppercase pan mtn"><?php the_title(); ?></h2>
+					<h2 class="uppercase pan mtn veryTight"><?php the_title(); ?></h2>
+					<?php the_post_thumbnail('medium'); ?>
 				</a>
-				<?php the_post_thumbnail('medium'); ?>
-				<p class="mtm"><?php echo get_the_excerpt(); ?></p>
+				
+				<p class="mtm"><?php echo get_the_excerpt(); ?><a href="<?php the_permalink();?>" target="_parent"> Read More <i class="icon-chevron-right fss"></i></a></p>
 			</div>
 			<hr>
 		<?php endwhile; ?>

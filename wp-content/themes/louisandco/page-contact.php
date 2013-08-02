@@ -12,8 +12,8 @@
 ?>
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
 
-<div class="container mth">
-	<div class="row mtl">
+<div class="container mobilePadding">
+	<div class="row mobilePadding">
 	<?php
 		$queryHome = new WP_Query(array(
     	'post_type'			 => 'page', 
@@ -38,7 +38,7 @@
 			    <input type="email" placeholder="Email" class="span4">
 			    <label>Message</label>
 			    <textarea rows="3" placeholder="Message" class="span4"></textarea>
-			    <button type="submit" class="btn ">Submit</button>
+			    <button type="submit" class="btn transition">Submit</button>
 			  </fieldset>
 			</form>
 			
