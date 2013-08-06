@@ -27,7 +27,7 @@ function sortTax($a, $b) {
 	 <?php foreach($rows as $row){?>
 	 	<?php $tag = get_tag($row['sub_taxonomy']); ?> 
 			<div class="itemPack <?php echo strtolower($tag->name) . ' ';  ?>">
-			<?php echo wp_get_attachment_image( $row['sub_images'], 'thumbnail'); ?>
+			<?php echo wp_get_attachment_image( $row['sub_images'], 'full'); ?>
 	  	</div>
 		<?php } ?>
 	<?php } ?>
@@ -37,7 +37,7 @@ function sortTax($a, $b) {
 <?php
 	if($rows){ ?>
 	 <?php foreach($rows as $row){?>
-      	<img src="<?php $imageURL = wp_get_attachment_image_src( $row['sub_images'], 'large'); echo $imageURL[0]; ?>"/>
+      	<img src="<?php $imageURL = wp_get_attachment_image_src( $row['sub_images'], 'full'); echo $imageURL[0]; ?>"/>
 		<?php } ?>
 	<?php } ?> 
 </div>
