@@ -107,11 +107,14 @@ $container.imagesLoaded( function(){
 
 $('.secondMenu a').on('click',function(e){												// bind second menu click event
 	var selector = $(this).text().toLowerCase();										// get menu text, this should relate to tag
-	if(selector.search( 'download' ) != 0){													// check if download is included in text
+	if(selector.search( 'download' ) != 0 || selector.search( 'all' ) != 0){													// check if download is included in text
 		pde(e);																												// crossbrowser prevent defaultChecked
 		$('.secondMenu a').removeClass('selected');										// remove all selected class
 		$(this).addClass('selected');
 		$container.isotope({ filter: '.itemPack'+'.'+ selector });
+	}
+	if(selector.search( 'all' ) == 0){
+		$container.isotope({ filter: '*' });
 	}
   
 });
