@@ -84,11 +84,7 @@ function starkers_script_enqueuer()
   wp_register_script('isotope', get_template_directory_uri() . '/js/jquery.isotope.min.js', '', '', true);
   wp_enqueue_script('isotope');
   wp_register_script('galleria', get_template_directory_uri() . '/js/galleria-1.2.9.min.js', '', '', true);
-  wp_enqueue_script('galleria');
-  
-  
-  
-  
+  wp_enqueue_script('galleria');  
   
   /* Style Sheets */
   wp_register_style('reset', get_template_directory_uri() . '/css/reset.css', '', '', 'screen');
@@ -105,6 +101,8 @@ function starkers_script_enqueuer()
   wp_enqueue_style('css');
   wp_register_style('fonts', get_template_directory_uri() . '/css/fonts.css', '', '', 'screen');
   wp_enqueue_style('fonts');
+
+  
 }
 
 
@@ -152,8 +150,8 @@ function our_ajax_function()
 {
   
   switch ($_REQUEST['fn']) {
-    case 'get_more_galleries':
-      $output = ajax_get_more_galleries($_REQUEST['category'], $_REQUEST['trackOffset']);
+    case 'get_images':
+      $output = ajax_get_more_galleries($_REQUEST['count']);
       break;
     
     default:
@@ -177,11 +175,10 @@ function our_ajax_function()
 
 // AJAX FUNCTIONS
 
-function ajax_get_more_galleries($category, $trackOffset)
+function ajax_get_more_galleries($trackOffset)
 {
   $args = array(
-    'cat' => $category,
-    'posts_per_page' => 2,
+    'posts_per_page' => 20,
     'post_status' => 'publish',
     'offset' => $trackOffset
   );

@@ -107,18 +107,21 @@ $container.imagesLoaded( function(){
 
 $('.secondMenu a').on('click',function(e){												// bind second menu click event
 	var selector = $(this).text().toLowerCase();										// get menu text, this should relate to tag
-	if(selector.search( 'download' ) != 0){													// check if download is included in text
+	if(selector.search( 'download' ) != 0 || selector.search( 'all' ) != 0){													// check if download is included in text
 		pde(e);																												// crossbrowser prevent defaultChecked
 		$('.secondMenu a').removeClass('selected');										// remove all selected class
 		$(this).addClass('selected');
 		$container.isotope({ filter: '.itemPack'+'.'+ selector });
+	}
+	if(selector.search( 'all' ) == 0){
+		$container.isotope({ filter: '*' });
 	}
   
 });
 
 function runGalleria(indexVar){
 
-Galleria.loadTheme('http://falsebehavinganimals.com/zStaging/louisandco/wp-content/themes/louisandco/js/classic/galleria.classic.min.js');
+Galleria.loadTheme('http://localhost/clients/louisandco/wp-content/themes/louisandco/external/classic/galleria.classic.min.js');
 Galleria.configure({
 	transition: 'fade',
   imageCrop: false,
@@ -206,13 +209,6 @@ function loadPageVar(sVar) {																			// returns pagevar is it exists
 
 
 
-
-      
-      
-    
-
-
-
   /* ========================================================================================================================
 	
 	Ajax
@@ -220,16 +216,15 @@ function loadPageVar(sVar) {																			// returns pagevar is it exists
 ======================================================================================================================== */
 
 
-  /*  Uncomment to use
 
-  function recentPostsAjax() {
+  function galleryAjax(trackCount) {
    
    jQuery.ajax({
-     url: '/wp-admin/admin-ajax.php',
+     url: 'http://localhost/clients/louisandco/wp-admin/admin-ajax.php',
      data: {
        'action': 'do_ajax',
-       'fn': 'get_latest_posts',
-       'count': 10
+       'fn': 'get_images',
+       'count': trackCount
      },
      dataType: 'JSON',
      success: function (data) {
@@ -246,7 +241,31 @@ function loadPageVar(sVar) {																			// returns pagevar is it exists
    });
   }
 
-*/
+
+var didScroll = false;
+var hasFinished = true;
+var trackCount = 20;
+ 
+$(window).scroll(function() {
+    didScroll = true;
+});
+ 
+setInterval(function() {
+    if ( didScroll && $('body').hasClass('page-template-page-images-php') ) {
+        didScroll = false;
+        if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+	        if(hasFinished){
+	        	$('#ajax-more-galleries-insert').append('<div class="span12 txtC bg-white height1 loadingSpinner txt-pink mbm bb-grey"><i class="icon-spinner icon-spin icon-2x mtl"></i></span>');
+	        	console.log('bottom')
+						galleryAjax( trackCount );
+						hasFinished = false;
+					}
+       }
+       
+        // Check your page position and then
+        // Load in more results
+    }
+}, 250);
 
 
   /* ========================================================================================================================

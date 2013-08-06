@@ -13,7 +13,7 @@
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
 
 <div class="container mobilePadding">
-	<div class="row mobilePadding">
+	<div class="row">
 	<?php
 		$queryHome = new WP_Query(array(
     	'post_type'			 => 'page', 
