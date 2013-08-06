@@ -33,7 +33,7 @@ hr{border-bottom: 1px solid #252525;border-top: 1px solid #000000; }
 .btn{background-color: #222222;border-radius: 0px;border-color: #333333;background-image: none;color: #ffffff;box-shadow: none;text-shadow: none;}
 .btn:hover{background-color: #969696; color: #000000}
 
-.mobilePadding{margin-top: 85px}
+.mobilePadding{margin-top: 135px; margin-bottom: 35px;}
 /* Home Page */
 img.bg {
   /* Set rules to fill background */

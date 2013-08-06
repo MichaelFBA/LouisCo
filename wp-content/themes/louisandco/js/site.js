@@ -118,7 +118,7 @@ $('.secondMenu a').on('click',function(e){												// bind second menu click 
 
 function runGalleria(indexVar){
 
-Galleria.loadTheme('http://localhost/clients/louisandco/wp-content/themes/louisandco/external/classic/galleria.classic.min.js');
+Galleria.loadTheme('http://falsebehavinganimals.com/zStaging/louisandco/wp-content/themes/louisandco/js/classic/galleria.classic.min.js');
 Galleria.configure({
 	transition: 'fade',
   imageCrop: false,
@@ -201,6 +201,8 @@ if ( (loadPageVar('filter') == '') ) {														// check if pagevar has been
 function loadPageVar(sVar) {																			// returns pagevar is it exists
 	return unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape(sVar).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
 }
+
+
 
 
 

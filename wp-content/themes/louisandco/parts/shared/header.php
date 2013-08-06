@@ -13,8 +13,8 @@
 				    'container'  => false,
 				    'menu_class' => 'uppercase fsl df man mtm transition'
 				));
-			?>
-			
+?>
+
 			<form class="contactForm hidden-phone" id="searchform" action="<?php bloginfo('home'); ?>/" method="get">
         <fieldset>
 	        <input id="s" maxlength="150" name="s" size="20" type="text" value="" class="txt mbn" />
@@ -22,14 +22,16 @@
         </fieldset>
 			</form>
 			
-			<?php 
+			<?php if ( is_page_template('page-images.php') ) {
 				wp_nav_menu( array(
 				    'menu'       => 'Sub',
 				    'depth'      => 2,
 				    'container'  => false,
 				    'menu_class' => 'uppercase pull-right secondMenu hidden-phone'
 				));
+				}
 			?>
+		
 			
 		</div>
 	</div>
