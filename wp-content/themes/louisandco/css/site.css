@@ -33,7 +33,7 @@ hr{border-bottom: 1px solid #252525;border-top: 1px solid #000000; }
 .btn{background-color: #222222;border-radius: 0px;border-color: #333333;background-image: none;color: #ffffff;box-shadow: none;text-shadow: none;}
 .btn:hover{background-color: #969696; color: #000000}
 
-.mobilePadding{margin-top: 85px}
+.mobilePadding{margin-top: 110px}
 /* Home Page */
 img.bg {
   /* Set rules to fill background */
@@ -75,7 +75,7 @@ img.grayscale {
 #menu-main{list-style: none;}
 #menu-main li a{font-size: 34px; line-height: 0.7em;}
 #menu-main li{transition: all .3s ease-in-out;-moz-transition: all .3s ease-in-out; /* Firefox 4 */-webkit-transition: all .3s ease-in-out; /* Safari and Chrome */-o-transition: all .3s ease-in-out; /* Opera */}
-.page-template-page-news-php #menu-main > li:first-child, .contact #menu-main > li:first-child, .about #menu-main > li:first-child, .single-format-standard #menu-main > li:first-child, .search #menu-main > li:first-child{margin-bottom: 20px;}
+.page-template-page-news-php #menu-main > li:first-child, .contact #menu-main > li:first-child, .about #menu-main > li:first-child, .single-format-standard #menu-main > li:first-child, .search #menu-main > li:first-child, .archive #menu-main > li:first-child, .error404 #menu-main > li:first-child{margin-bottom: 20px;}
 
 
 #menu-main li:hover .sub-menu{opacity: 1;height: 50px;}
@@ -143,6 +143,10 @@ header{display: block;position: fixed;top: 0px;z-index: 999;background-color: bl
 
 /* News Page */
 .widget-sidebar ul{list-style: none;margin-left: 0px}
+.widgettitle{line-height: 1em;}
+.widget-sidebar select{ background: transparent;width: 268px;padding: 5px;font-size: 16px;line-height: 1;border: 1px solid;border-radius: 0;height: 34px;
+background-color: #222222;border-color: #333333;background-image: url("../img/downArrow.png");background-repeat: no-repeat;background-position: 240px center;color: #969696;-webkit-appearance: none;-moz-appearance: none;appearance: none;}
+
 
 /* About */
 
@@ -298,6 +302,7 @@ Responsive
 @media (min-width: 768px) and (max-width: 979px) { 
 	p{font-size: 12px;line-height: 1.35em;}
 	.navbar-fixed-top, .navbar-fixed-bottom {position: fixed}
+	.widget-sidebar select{width: 228px;background-position-x: 200px;}
 	
 }
  
