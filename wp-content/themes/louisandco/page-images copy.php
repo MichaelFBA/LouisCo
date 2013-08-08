@@ -15,7 +15,7 @@
 
 <div class="isotope" data-pagename="<?php echo $pagename; ?>">
 	<?php 
-	$rows = get_field('image_gallery_lco');
+	//$rows = get_field('image_gallery_lco');
 	//Sort via taxonomy
 	/*
 function sortTax($a, $b) {
@@ -23,20 +23,16 @@ function sortTax($a, $b) {
 	}
 	usort($rows, "sortTax");
 */
-
+/*
 	if($rows){ ?>
 	 <?php foreach($rows as $row){?>
 	 	<?php $tag = get_tag($row['sub_taxonomy']); ?> 
 			<div class="itemPack <?php echo strtolower($tag->name) . ' ';  ?>">
-			<?php 
-				$imageThumb = wp_get_attachment_image_src( $row['sub_images'], 'thumbnail'); 
-				$imageLarge = wp_get_attachment_image_src( $row['sub_images'], 'full'); 
-				?>
-				<img src="<?php echo $imageThumb[0] ?>" title="<?php echo $imageLarge[0] ?>" /> 
+			<?php echo wp_get_attachment_image( $row['sub_images'], 'thumbnail'); ?>
 	  	</div>
 		<?php } ?>
 	<?php } ?>
- 
+*/ ?>
 </div>
 
 <div id="galleria">

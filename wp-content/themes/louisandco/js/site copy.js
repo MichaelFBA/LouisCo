@@ -79,143 +79,86 @@ function () {
 	
 ======================================================================================================================== */
 var $container = $('.isotope');	
+var $window = $(window);																	// initalise isotope
+var galleriaReady = false;
 
-$container.imagesLoaded( function(){
-  $container.isotope({
-  	itemSelector : '.itemPack',
-  });
-})
+function isotopeSetup(){
+	$container.imagesLoaded( function(){
+	  $container.isotope({
+	  	itemSelector : '.itemPack',
+	  });
+	  isotopeEvents();
+	});
+}
+
+function isotopeEvents(){
+	 // Galleria click Event
+	 $('.itemPack').on( 'click', function(e){
+	 	var index = $(this).index();
+	 	$('#galleria').fadeIn('medium', function() {
+			
+			if(galleriaReady){
+				$('#galleria').data('galleria').show( index );
+				$('.isotope').hide();
+			}else{
+				runGalleria(index)
+			}
+		})
+	 });
+}
+
+$('.secondMenu a').on('click',function(e){												// bind second menu click event
+	var selector = $(this).text().toLowerCase();										// get menu text, this should relate to tag
+	if(selector.search( 'download' ) != 0){													// check if download is included in text
+		pde(e);																												// crossbrowser prevent defaultChecked
+		$('.secondMenu a').removeClass('selected');										// remove all selected class
+		$(this).addClass('selected');
+		if(selector.search( 'all' ) == 0){
+			$container.isotope({ filter: '*' });
+		}else{
+			$container.isotope({ filter: '.itemPack'+'.'+ selector });
+		}
+		
+	}
+  
+});
+
+function runGalleria(indexVar){
 
 
-  /* ========================================================================================================================
-	
-	Galleria
-	
-======================================================================================================================== */
 
-var data = [
-{
-    thumb: 'img/thumb.1.jpg',
-    image: 'img/med.1.jpg',
-    big: 'img/lrg.1.jpg',
-},
-                                    {
-    thumb: 'img/thumb.2.jpg',
-    image: 'img/med.2.jpg',
-    big: 'img/lrg.2.jpg',
-},
-
-];
-var data2 = [
-{
-    thumb: 'img/thumb.3.jpg',
-    image: 'img/med.3.jpg',
-    big: 'img/lrg.3.jpg',
-},
-                                    {
-    thumb: 'img/thumb.4.jpg',
-    image: 'img/med.4.jpg',
-    big: 'img/lrg.4.jpg',
-},
-];                          
-
-//left and right arrows control from keyboard
-Galleria.ready(function() {
-var gallery = this; 
- gallery.attachKeyboard({
-        left: gallery.prev,
-        right: gallery.next,
-    });
- });
-
- //load theme                                                               
-Galleria.loadTheme('http://addcarrots.com/wp-content/themes/louisandco/external/classic/galleria.classic.min.js');
-
- //configure
-Galleria.configure({
-		transition: false,
+	Galleria.loadTheme('http://localhost/clients/louisandco/wp-content/themes/louisandco/external/classic/galleria.classic.min.js');
+	Galleria.configure({
+		transition: 'fade',
 	  imageCrop: false,
 	  responsive:true,
 	  showInfo:false,
 	  showCounter:true,
 	  thumbnails:false,
 	  trueFullscreen:true,
-    thumbnails:'lazy',
-    extend: function() {
+	  show:indexVar,
+	  extend: function() {
 			// create the button and append it
 	    this.addElement('button').appendChild('container','button');
 	
 	    // Add text & click event using jQuery
 	    this.$('button').append('<span class="icon-closeBtn"></span>').click(function() {
-	        $('.isotope').show();
-	        $('#galleria').fadeOut();
+	      $('.isotope').show();
+	      $('#galleria').fadeOut();
 	    });
 		}
-});
-
-var data3 = $('.itemPack').map(function(){
-		    return {
-		        image: $(this).children().attr('title')
-		    };
-			}).get();
-		console.log(data3)
-
-//run and extend
-Galleria.run('#galleria', {
-	dataSource:data3
-});
-
-var loaded = true;
-Galleria.ready(function(){
-    var gallery = this;
-    var className;
-    var iIndex;
-    $('.itemPack').on( 'click', function(e){
-    	//check if filtered
-    	if( $('.secondMenu a').hasClass('selected') == true ){
-	    	className = $('.secondMenu a.selected').text().toLowerCase();
-	    	iIndex = $('.' + className).index(this);
-	    	
-	    	if(className == 'all'){
-		    	className = 'itemPack'; // select all
-		    	iIndex = $(this).index();
-	    	}
-    	}else{
-    		className = 'itemPack'; // select all
-    		iIndex = $(this).index();
-	    	//className = $(this).attr('class').split(' ')[1];
-			}
-    	
-		 	
-		  var data3 = $('.' + className).map(function(){
-		    return {
-		        image: $(this).children().attr('title')
-		    };
-			}).get();
-				
-				gallery.setOptions('show',iIndex).load(data3);
-				$('#galleria').hide();
-				$('#galleria').css('right',0); 
-				$('#galleria').fadeIn();
-
-		})
-		
-		
-		
-    
-}); 
-Galleria.on('data',function(){
-    var gallery = this;
-    window.setTimeout(function(){
-        gallery.lazyLoadChunks(3);
-    },10);
-});
-
-  /* ========================================================================================================================
+	});
+	Galleria.run('#galleria', {
+    dataSource: ajaxData[0].large,
+	});																																// this runs the first time an image is clicked
 	
-	Galleria Events
-	
-======================================================================================================================== */
+	galleriaReady = true;																					// boolean to check when gallery ready
+	$('#galleria').css('bottom','0px').hide()											// change the position of the gallery
+	$('#galleria').css('right','0px').fadeIn()										// fade in the gallery
+	$('.isotope').hide();																					// hide the background
+
+}
+
 //Bind Keys
 $(document).bind("keydown", function(e){
   if(e.keyCode== 37){
@@ -238,26 +181,14 @@ $(document).bind("keydown", function(e){
 
 
 
+
+
   /* ========================================================================================================================
 	
 	Sub Menu Filtering - homepage
 	
 ======================================================================================================================== */
-$('.secondMenu a').on('click',function(e){												// bind second menu click event
-	var selector = $(this).text().toLowerCase();										// get menu text, this should relate to tag
-	if(selector.search( 'download' ) != 0){													// check if download is included in text
-		pde(e);																												// crossbrowser prevent defaultChecked
-		$('.secondMenu a').removeClass('selected');										// remove all selected class
-		$(this).addClass('selected');
-		if(selector.search( 'all' ) == 0){
-			$container.isotope({ filter: '*' });
-		}else{
-			$container.isotope({ filter: '.itemPack'+'.'+ selector });
-		}
-		
-	}
-  
-});
+
 
 
 $('#menu-main .sub-menu a').on('click',function(e){					// only bind click event on homepage
@@ -271,17 +202,19 @@ $('#menu-main .sub-menu a').on('click',function(e){					// only bind click event
 	}
 })
 
-if ( (loadPageVar('filter') == '') ) {														// check if pagevar has been sent
-	$container.isotope({ filter: '*' });														// if no filter dont filter any
-}else{
-	$container.isotope({ filter: '.'+ loadPageVar('filter') });     // filter isotope via pagevar 
-	$('.current-menu-item .sub-menu a:contains('+loadPageVar('filter').toUpperCase()+')' ).addClass('selected') //set the menu item to selected
-}
+function pageVarCheck(){
 
-function loadPageVar(sVar) {																			// returns pagevar is it exists
-	return unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape(sVar).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+	if ( (loadPageVar('filter') == '') ) {														// check if pagevar has been sent
+		$container.isotope({ filter: '*' });														// if no filter dont filter any
+	}else{
+		$container.isotope({ filter: '.'+ loadPageVar('filter') });     // filter isotope via pagevar 
+		$('.current-menu-item .sub-menu a:contains('+loadPageVar('filter').toUpperCase()+')' ).addClass('selected') //set the menu item to selected
+	}
+	
+	function loadPageVar(sVar) {																			// returns pagevar is it exists
+		return unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape(sVar).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+	}
 }
-
 
 
 
@@ -294,31 +227,70 @@ function loadPageVar(sVar) {																			// returns pagevar is it exists
 
 
 
-function galleryAjax(pagename,trackCount) {
- 
- jQuery.ajax({
-   url: 'http://localhost/clients/louisandco/wp-admin/admin-ajax.php',
-   data: {
-     'action': 'do_ajax',
-     'fn': 'get_images',
-     'count': trackCount,
-     'page':pagename
-   },
-   dataType: 'JSON',
-   success: function (data) {
-     console.log(data);
-     hasFinished = true;
-	 },
-   error: function (errorThrown) {
-     console.log(errorThrown);
+  function galleryAjax(pagename,trackCount) {
+   
+   jQuery.ajax({
+     url: 'http://localhost/clients/louisandco/wp-admin/admin-ajax.php',
+     data: {
+       'action': 'do_ajax',
+       'fn': 'get_images',
+       'count': trackCount,
+       'page':pagename
+     },
+     dataType: 'JSON',
+     success: function (data) {
+       console.log(data);
+       ajaxData = data;  															//assign data to variable
+       lazyLoad();																		// run first lazy load
+       pageVarCheck();																// check if page var
+       console.log(ajaxData[0].large);
+     },
+     error: function (errorThrown) {
+       console.log(errorThrown);
+     }
+   });
+  }
+  
+function lazyLoad(){
+	console.log('lazy')
+	
+  var images='';
+       
+	 for(i = originalTrack; i < trackCount; i++){
+	 	if(i < ajaxData[0].name.length){
+			images += '<div class="itemPack '+ ajaxData[0].name[i] +'">'+ ajaxData[0].thumb[i] +'</div>';
+		}
+	 }
+	 
+	 originalTrack = trackCount;
+   trackCount += 5; 
+   
+   if(firstSetup){
+   		$('.isotope').append(images);
+   		$('#galleria').append(imagesGalleria)
+   		isotopeSetup();
+   		isotopeEvents();
+   		firstSetup = false;
+   }else{
+   	var $newItems = $(images);
+	   $container.isotope( 'insert', $newItems );
+	   isotopeEvents();
    }
- });
+   
+   
+   
+   $('.loadingSpinner').remove();
 }
 
-
+var ajaxData;
 var didScroll = false;
 var hasFinished = true;
 var trackCount = 10;
+var originalTrack = 0;
+var firstSetup = true;
+
+var pagename = $('.isotope').attr('data-pagename')
+galleryAjax(pagename ,trackCount );
  
 $(window).scroll(function() {
     didScroll = true;
@@ -328,17 +300,9 @@ setInterval(function() {
     if ( didScroll && $('body').hasClass('page-template-page-images-php') ) {
         didScroll = false;
         if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
-	        if(hasFinished){
-	        	$('#ajax-more-galleries-insert').append('<div class="span12 txtC bg-white height1 loadingSpinner txt-pink mbm bb-grey"><i class="icon-spinner icon-spin icon-2x mtl"></i></span>');
-	        	console.log('bottom')
-						var pagename = $('.isotope').attr('data-pagename');
-						galleryAjax(pagename ,trackCount );
-						hasFinished = false;
-					}
-       }
-       
-        // Check your page position and then
-        // Load in more results
+	        	$('.isotope').append('<div class="span12 txtC bg-white height1 loadingSpinner txt-pink mbm bb-grey"><i class="icon-spinner icon-spin icon-2x mtl"></i></span>');
+	        	lazyLoad();
+				}
     }
 }, 250);
 

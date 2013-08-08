@@ -151,7 +151,7 @@ function our_ajax_function()
   
   switch ($_REQUEST['fn']) {
     case 'get_images':
-      $output = ajax_get_more_galleries($_REQUEST['count']);
+      $output = ajax_get_more_galleries($_REQUEST['page'],$_REQUEST['count']);
       break;
     
     default:
@@ -175,12 +175,12 @@ function our_ajax_function()
 
 // AJAX FUNCTIONS
 
-function ajax_get_more_galleries($trackOffset)
+function ajax_get_more_galleries($pagename, $trackOffset)
 {
   $args = array(
-    'posts_per_page' => 20,
+    'posts_per_page' => -1,
     'post_status' => 'publish',
-    'offset' => $trackOffset
+    'pagename' => $pagename
   );
   
   $arr = array();
@@ -189,28 +189,37 @@ function ajax_get_more_galleries($trackOffset)
   
   while ($catloop->have_posts()):
     $catloop->the_post(); {
-    $queryAttachments   = array();
-    $entry              = array();
-    $entry['id']        = get_the_ID();
-    $entry['category']  = get_the_category();
-    $entry['link']      = get_permalink();
-    $entry['title']     = get_the_title();
-    $entry['thumbnail'] = get_the_post_thumbnail(null, 'medium');
+    $entry 									 = array();
+    $large                   = array();
+    $queryThumbAttachments   = array();
+    $queryLargeAttachments   = array();
+    $queryTags   						 = array();
     
-    $attachments = get_posts(array(
-      'post_type' => 'attachment',
-      'posts_per_page' => -1,
-      'post_parent' => get_the_ID()
-    ));
+    $first = true;
+    $collection							= array();
+    $personal = array();
     
-    if ($attachments) {
-      foreach ($attachments as $attachment) {
-        $queryAttachments[] = wp_get_attachment_image($attachment->ID, 'large');
-      }
-      $entry['attachments'] = $queryAttachments;
-    }
-    
-    $entry['acf'] = get_fields();
+    $rows = get_field('image_gallery_lco');
+    if($rows){ 
+	  	foreach($rows as $row){
+				$tag = get_tag($row['sub_taxonomy']); 
+				$queryTags[] = strtolower($tag->name);
+				
+				$queryThumbAttachments[] = wp_get_attachment_image( $row['sub_images'], 'thumbnail');
+			  $image_attributes = wp_get_attachment_image_src( $row['sub_images'], 'large');
+			  
+			  $obj = new stdClass;
+				$obj->image = $image_attributes[0];
+			  array_push($large,$obj);
+			  
+			}
+			$entry['collection'] = $collection;
+			$entry['personal'] = $personal;
+			
+			$entry['name'] = $queryTags;
+			$entry['thumb'] = $queryThumbAttachments;
+			$entry['large'] = $large;
+	}
     $arr[]        = $entry;
   }
   endwhile;
