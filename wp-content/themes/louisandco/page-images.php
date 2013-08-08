@@ -12,7 +12,6 @@
 ?>
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
 
-
 <div class="isotope" data-pagename="<?php echo $pagename; ?>">
 	<?php 
 	$rows = get_field('image_gallery_lco');

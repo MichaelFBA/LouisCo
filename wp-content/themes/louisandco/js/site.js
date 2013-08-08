@@ -92,32 +92,7 @@ $container.imagesLoaded( function(){
 	Galleria
 	
 ======================================================================================================================== */
-
-var data = [
-{
-    thumb: 'img/thumb.1.jpg',
-    image: 'img/med.1.jpg',
-    big: 'img/lrg.1.jpg',
-},
-                                    {
-    thumb: 'img/thumb.2.jpg',
-    image: 'img/med.2.jpg',
-    big: 'img/lrg.2.jpg',
-},
-
-];
-var data2 = [
-{
-    thumb: 'img/thumb.3.jpg',
-    image: 'img/med.3.jpg',
-    big: 'img/lrg.3.jpg',
-},
-                                    {
-    thumb: 'img/thumb.4.jpg',
-    image: 'img/med.4.jpg',
-    big: 'img/lrg.4.jpg',
-},
-];                          
+if( $('.page-template-page-images-php').length == 1){                         
 
 //left and right arrows control from keyboard
 Galleria.ready(function() {
@@ -144,6 +119,7 @@ Galleria.configure({
     extend: function() {
 			// create the button and append it
 	    this.addElement('button').appendChild('container','button');
+	    this.addElement('image').appendChild('loader','<i class="icon-spinner icon-spin icon-large fsl"></i>');
 	
 	    // Add text & click event using jQuery
 	    this.$('button').append('<span class="icon-closeBtn"></span>').click(function() {
@@ -153,16 +129,15 @@ Galleria.configure({
 		}
 });
 
-var data3 = $('.itemPack').map(function(){
+var data = $('.itemPack').map(function(){
 		    return {
 		        image: $(this).children().attr('title')
 		    };
 			}).get();
-		console.log(data3)
 
 //run and extend
 Galleria.run('#galleria', {
-	dataSource:data3
+	dataSource:data
 });
 
 var loaded = true;
@@ -187,13 +162,13 @@ Galleria.ready(function(){
 			}
     	
 		 	
-		  var data3 = $('.' + className).map(function(){
+		  var data = $('.' + className).map(function(){
 		    return {
 		        image: $(this).children().attr('title')
 		    };
 			}).get();
 				
-				gallery.setOptions('show',iIndex).load(data3);
+				gallery.setOptions('show',iIndex).load(data);
 				$('#galleria').hide();
 				$('#galleria').css('right',0); 
 				$('#galleria').fadeIn();
@@ -210,7 +185,7 @@ Galleria.on('data',function(){
         gallery.lazyLoadChunks(3);
     },10);
 });
-
+}
   /* ========================================================================================================================
 	
 	Galleria Events
@@ -218,15 +193,7 @@ Galleria.on('data',function(){
 ======================================================================================================================== */
 //Bind Keys
 $(document).bind("keydown", function(e){
-  if(e.keyCode== 37){
-    $('#galleria').data('galleria').prev();
-  }else if(e.keyCode== 38){
-    $('#galleria').data('galleria').next();
-  }else if(e.keyCode== 39){
-    $('#galleria').data('galleria').next();
-  }else if(e.keyCode== 40){
-    $('#galleria').data('galleria').prev();
-  }else if(e.keyCode== 27){																		// esc key		
+	if(e.keyCode== 27){																		// esc key		
   	$('.isotope').show();
     $('#galleria').fadeOut();
   }else{
