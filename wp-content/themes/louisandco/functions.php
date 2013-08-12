@@ -85,6 +85,10 @@ function starkers_script_enqueuer()
   wp_enqueue_script('isotope');
   wp_register_script('galleria', get_template_directory_uri() . '/js/galleria-1.2.9.min.js', '', '', true);
   wp_enqueue_script('galleria');  
+  wp_register_script('form', get_template_directory_uri() . '/js/jquery.form.js', '', '', true);
+  wp_enqueue_script('form');
+  wp_register_script('contact', get_template_directory_uri() . '/js/scripts.js', '', '', true);
+  wp_enqueue_script('contact');  
   
   /* Style Sheets */
   wp_register_style('reset', get_template_directory_uri() . '/css/reset.css', '', '', 'screen');

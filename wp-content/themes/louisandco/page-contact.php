@@ -26,23 +26,6 @@
 		<div class="span4">
 			<h2 class="uppercase pan mbn"><?php the_title(); ?></h2>
 			<?php the_content(); ?>
-			<h2 class="uppercase pan mbn mtm">Get in touch</h2>
-			
-			<form class="contactForm">
-			  <fieldset>
-			    <label>Name</label>
-			    <input type="text" placeholder="Name" class="span4">
-			    <label>Phone Number</label>
-			    <input type="text" placeholder="Phone Number" class="span4">
-			    <label>Email</label>
-			    <input type="email" placeholder="Email" class="span4">
-			    <label>Message</label>
-			    <textarea rows="3" placeholder="Message" class="span4"></textarea>
-			    <button type="submit" class="btn transition">Submit</button>
-			  </fieldset>
-			</form>
-			
-			
 		</div>
 		<?php endwhile; ?>
 		<div class="span8">
